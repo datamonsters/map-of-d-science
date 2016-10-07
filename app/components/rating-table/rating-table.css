@@ -1,0 +1,11 @@
+.up-label{
+    color: rgb(33, 186, 68);
+}
+
+.down-label{
+    color: rgb(219, 40, 40);
+}
+table {
+    max-height: 50%;
+    overflow: scroll;
+}

@@ -1,0 +1,19 @@
+.head-up-display {
+    position: absolute;
+    padding: 0rem;
+    margin: 0;
+    pointer-events: none;
+}
+
+.hit {
+
+    pointer-events: auto!important;
+}
+
+
+.nodeName{
+    position: absolute;
+    right: 1cm;
+    bottom: 1rem;
+    pointer-events: none;
+}

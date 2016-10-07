@@ -1,0 +1,27 @@
+svg {
+    /*background-color: aqua;*/
+}
+
+.line {
+    fill: none;
+    /*stroke: steelblue;*/
+    stroke-width: 1px;
+}
+
+.hide-line {
+    stroke-width: 0.1px;
+}
+
+.selected-line {
+    stroke: red;
+    stroke-width: 2px;
+}
+
+#svglines {
+    min-height: 300px;
+}
+
+.fontLabel{
+    /*font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;*/
+    font-weight: 100;
+}

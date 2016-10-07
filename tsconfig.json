@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "allowUnreachableCode":true,
+        "target": "es6",
+        "module": "system",
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports":true,
+        "experimentalDecorators": true
+    },
+    "exclude": [
+        "node_modules",
+        "scripts",
+        "libs",
+        "assets"
+    ],
+    "files": [
+        "app/definitions/index.d.ts",
+        "app/definitions/sigma.d.ts",
+        "app/definitions/ramda/index.d.ts"
+    ]
+}

@@ -1,0 +1,13 @@
+.asf-logo{
+    height: 200px;
+}
+.dm-logo{
+    max-height: 200px;
+}
+
+.main-logos {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
