@@ -9,7 +9,7 @@
     "start": "webpack-dev-server --hot --inline --content-base dist/  --port 7070"
   },
   "dependencies": {
-    "alak": "^0.4.17",
+    "alak": "^0.4.28",
     "arts": "^1.0.5",
     "awesome-typescript-loader": "2.2.0",
     "fast-csv": "^2.1.0",
