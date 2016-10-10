@@ -1,5 +1,5 @@
 import state from "../../data/state";
-import BaseNode from "../../data/classes.data";
+import BaseNode from "../../classes/basenode.class";
 
 let arrows = {
     up: "arrow green up icon",

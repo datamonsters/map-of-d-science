@@ -1,13 +1,13 @@
-import {BaseData, default as BaseNode, BaseEdge} from "../../data/classes.data";
+
 import state from "../../data/state";
 import RendererConfigs = SigmaJs.RendererConfigs;
+import {BaseData} from "../../classes/basedata.class";
 
 let s
 
 function init() {
     state.clearState.on(()=>s.refresh())
     state.selectedNode.on(()=>s.refresh())
-    state.subSelect.on(()=>s.refresh())
 }
 const graphSigma = {
     init: init,
@@ -21,12 +21,12 @@ const graphSigma = {
                 zoomMin: 0.0002,
                 dragNodeStickiness: 0.01,
                 nodeBorderSize: 0,
-                labelSizeRatio: 1.3,
-                labelThreshold: 3.3,
+                // labelSizeRatio: 1.3,
+                // labelThreshold: 3.3,
                 defaultNodeBorderColor: '#000',
                 enableEdgeHovering: false,
-                drawEdges: false,
-                edgeHoverHighlightNodes: 'circle',
+                // drawEdges: true,
+                // edgeHoverHighlightNodes: 'circle',
             }
         })
 
@@ -74,9 +74,9 @@ const graphSigma = {
 
         console.log("draw")
 
-        // setInterval(() => {
-        //     sigma.layouts.stopForceLink();
-        // }, 3000)
+        setInterval(() => {
+            sigma.layouts.stopForceLink();
+        }, 3000)
 
         // fa.bind('start stop', (e) => console.log(e.type))
         sigma.layouts.startForceLink();

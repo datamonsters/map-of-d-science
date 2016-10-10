@@ -1,9 +1,7 @@
 import "./components/start";
 import "./components/head-up-display";
-// import "./utils";
 import './components/graph-container'
-import './components/rating-table'
-// import './components/main'
+import './components/info-div'
 import state from "./data/state";
 state.restore()
 

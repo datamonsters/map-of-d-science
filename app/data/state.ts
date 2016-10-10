@@ -2,11 +2,11 @@ import raw from "./services/rawloader";
 import A from "alak";
 import calc from "./data.calc";
 import {IAStream} from "alak";
-import {BaseData, default as BaseNode, HiddenNode} from "./classes.data";
+import BaseNode from "../classes/basenode.class";
+import {BaseData} from "../classes/basedata.class";
 
 const data = A.start() as IAStream<BaseData>
 const selectedNode = A.start()  as IAStream<BaseNode>
-const subSelect =  A.start() as IAStream<HiddenNode>
 const dataType = A.start()
 const searchMode = A.start("select")
 const clearState = A.start()
@@ -29,7 +29,6 @@ dataType.on(type => A.match(type, mapTypes))
 const state = {
     selectedNode: selectedNode,
     clearState: clearState,
-    subSelect:subSelect,
     data: data,
     dataType: dataType,
     searchMode: searchMode,

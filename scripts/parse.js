@@ -5,9 +5,10 @@ const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
 
-const indir = "approach2"
+const indir = "./rawdata/approach2"
 const outfile = "../assets/sgraph.json"
 
+fs.exists(indir)
 
 let nextid = 0
 const fileList = fs.readdirSync(indir).map(
@@ -75,8 +76,8 @@ async.waterfall(
                     {
                         id: i.id,
                         label: i.name,
-                        nodesA: i.main.map(onlyIdFn),
-                        nodesB: i.sub.map(onlyIdFn)
+                        nodes: i.main.map(onlyIdFn)
+                        //nodesB: i.sub.map(onlyIdFn)
                     }
                 )
             , allNodes
@@ -86,8 +87,7 @@ async.waterfall(
         fs.writeFile(
             outfile, JSON.stringify(
                 {
-                    graph: graph,
-                    sub: subNames
+                    graph: graph
                 }
             )
         )

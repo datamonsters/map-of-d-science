@@ -26,7 +26,7 @@ export default class DataStream {
         if (newurl) {
             this.url = newurl
         }
-        console.log("url", this.url);
+        console.log("DataStream.load url", this.url);
         this.xhr.open('GET', this.url, true);
         this.xhr.send(null);
         return this
