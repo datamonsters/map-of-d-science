@@ -1,5 +1,6 @@
 
 import BaseNode from "./basenode.class";
+import A from "alak";
 let edgesMap = {}
 let edgesPool: BaseEdge[] = []
 let uncalMap = {}
@@ -16,7 +17,7 @@ export class BaseEdge {
     public uid
 
     constructor(o) {
-        Object.assign(this, o)
+        A.assign(this, o)
         edgesMap[this.id] = this
         edgesPool.push(this)
 

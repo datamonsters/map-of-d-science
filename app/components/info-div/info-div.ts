@@ -1,4 +1,5 @@
 import state from "../../data/state";
+import BaseNode from "../../classes/basenode.class";
 
 let arrows = {
     up: "arrow green up icon",
@@ -9,14 +10,25 @@ let arrows = {
 let colorClass = ""
 
 export default (opt, tag)=> {
-    console.log("rating-table")
     // tag.rating = [1,2,3,4,5,7]
 
     tag.selectNode = (e)=> {
-        // console.log(e)
-        state.selectedNode(e.item)
+        state.selectedNode(e.item.wikiUrl)
+        // $.ajax({
+        //     type: "GET",
+        //     url: "https://en.wikipedia.org/w/api.php?format=xml&action=query&prop=extracts&titles="+e.item.wikiID+"&redirects=true",
+        //     success: (x)=>{
+        //         console.log(x)
+        //
+        //     },
+        //     dataType: "xml"
+        // });
     }
     tag.onOut = (e) =>{
+    }
+
+    tag.openNode =(e)=> {
+        window.open("http://en.wikipedia.org/wiki/"+e.item.wikiID,'_blank')
     }
 
     tag.on('mount', ()=> {
@@ -24,14 +36,14 @@ export default (opt, tag)=> {
         // $('.menu .item')
         //     .tab()
         // ;
-        // state.selectedNode.on(n=>{
-        //     tag.nodeSelected = true
-        //     tag.update()
-        // })
-        // state.clearState.on(n=>{
-        //     tag.nodeSelected = false
-        //     tag.update()
-        // })
+        state.selectedNode.on(n=>{
+            tag.nodeSelected = true
+            tag.update()
+        })
+        state.clearState.on(n=>{
+            tag.nodeSelected = false
+            tag.update()
+        })
         // $('.ui.dropdown')
         //     .dropdown({
         //         onChange: (value, text, $selectedItem)=> {
@@ -41,14 +53,15 @@ export default (opt, tag)=> {
         //     })
         // ;
         //
-        // state.selectedNode.on(node=>{
-        //
-        //     tag.titletext = node.label
-        //     tag.nodesOut = R.values(node.edgesOut).map((e:BaseEdge)=>BaseNode.map[e.target])
-        //     tag.edgesIn = R.values(node.edgesIn).map((e:BaseEdge)=>BaseNode.map[e.source])
-        //     tag.update()
-        //
-        // })
+        state.selectedNode.on(node=>{
+            console.log(node)
+
+            tag.titletext = node.label
+            tag.nodes = node.nodes //R.values(node.nodes).map((n:BaseNode)=>BaseNode.map[e.target])
+            // tag.edgesIn = R.values(node.edgesIn).map((e:BaseEdge)=>BaseNode.map[e.source])
+            tag.update()
+
+        })
 
     })
 

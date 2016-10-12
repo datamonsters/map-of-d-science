@@ -1,5 +1,5 @@
 import raw from "./services/rawloader";
-import A from "alak";
+import {A} from "alak";
 import calc from "./data.calc";
 import {IAStream} from "alak";
 import BaseNode from "../classes/basenode.class";
@@ -10,6 +10,7 @@ const selectedNode = A.start()  as IAStream<BaseNode>
 const dataType = A.start()
 const searchMode = A.start("select")
 const clearState = A.start()
+
 
 
 raw.jsonRaw.on(rawData => {

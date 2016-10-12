@@ -9,3 +9,24 @@ table {
     max-height: 50%;
     overflow: scroll;
 }
+
+.info-div {
+    overflow: scroll;
+    height: 80vh;
+    pointer-events: auto !important;
+    overflow-x: hidden;
+}
+
+.hbutton{
+    cursor: pointer!important;
+}
+
+.wbutton{
+    cursor: pointer!important;
+    color: gray!important;
+}
+
+
+.wbutton:hover{
+    color: #00aced!important;
+}

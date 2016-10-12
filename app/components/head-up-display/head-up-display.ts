@@ -47,7 +47,7 @@ export default (opt, tag) => {
                         }
                     }),
                     onSelect: (result, response) => {
-                        // console.log(result)
+                        console.log("result", result)
                         state.selectedNode(BaseNode.map[result.id])
                     }
                 })

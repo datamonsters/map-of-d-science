@@ -1,4 +1,4 @@
-import {AO} from "alak";
+import {AO, A} from "alak";
 import state from "../data/state";
 let nodesPool: BaseNode[] = []
 let nodesMap: AO<BaseNode> = {}
@@ -25,7 +25,7 @@ export default class BaseNode {
     public _color
     public x = Math.random() * 1500
     public y = Math.random() * 1500
-
+    public wikiID:string
     private state = ""
 
     get title() {
@@ -36,21 +36,21 @@ export default class BaseNode {
         return `Nodes - Out:${R.values(this.edgesOut).length}  In:${R.values(this.edgesIn).length}`
     }
 
-    init(p,colors){
+    init(p, colors) {
+        this.wikiID = this.label.replace( /\s/g, "_")
+        this.nodes = this.nodes.map(n=>BaseNode.map[n])
         this.size = this._size = p
-        this._color = this.color = colors[BaseNode.maxSize-p]
+        this._color = this.color = colors[BaseNode.maxSize - p]
     }
 
 
     constructor(o) {
-        Object.assign(this, o)
+        A.assign(this, o)
         nodesMap[this.id] = this
         nodesPool.push(this)
         BaseNode.maxSize = Math.max(BaseNode.maxSize, this.nodes.length)
 
         const getState = (nid) => {
-            console.log(nid, this)
-
             if (nid == this.id) return "select"
             let isIn = this.nodesIn[nid]
             let isOut = this.nodesOut[nid]
@@ -67,14 +67,12 @@ export default class BaseNode {
         })
         state.selectedNode.on(n => {
             this.state = getState(n.id)
-            R.empty(this.glyphs)
             this.redraw()
         })
     }
 
 
     redraw() {
-
         switch (this.state) {
             case "select":
                 this.color = "#FF0000"
@@ -105,7 +103,5 @@ export default class BaseNode {
                 this.size = this._size + 1000
                 break
         }
-
-        console.log(this.state, this.color)
     }
 }

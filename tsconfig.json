@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "allowUnreachableCode":true,
-        "target": "es6",
+        "target": "es5",
         "module": "system",
         "moduleResolution": "node",
         "allowSyntheticDefaultImports":true,

@@ -7,5 +7,3 @@ const template = require("html!./" + name + ".html")
 
 const startComponent = Arts.component(name, template, constructor)
 export default startComponent
-
-
