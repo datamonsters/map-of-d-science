@@ -25,7 +25,7 @@ const graphSigma = {
                 // labelThreshold: 3.3,
                 defaultNodeBorderColor: '#000',
                 enableEdgeHovering: false,
-                // drawEdges: true,
+                drawEdges: true,
                 // edgeHoverHighlightNodes: 'circle',
             }
         })
@@ -76,7 +76,7 @@ const graphSigma = {
 
         setInterval(() => {
             sigma.layouts.stopForceLink();
-        }, 3000)
+        }, 15000)
 
         // fa.bind('start stop', (e) => console.log(e.type))
         sigma.layouts.startForceLink();

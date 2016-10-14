@@ -5,7 +5,9 @@ const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
 
-const indir = "./rawdata/approach2"
+
+const dataname = "pages"
+const indir = "./scripts/rawdata/"+dataname
 const outfile = "../assets/sgraph.json"
 
 fs.exists(indir)
@@ -37,7 +39,7 @@ const parseNodeFile = (file) => (done) => {
     )
     rl.on(
         'line', (line) => {
-            let arrayOfConnection = line.replace(/ /g, "_").replace(/(\]|\[|'|)/g, "").split(",_u")
+            let arrayOfConnection = line.replace(/ /g, "_").replace(/(\]|\[|'|)/g, "").split(",_")
             if (i == 0) {
                 let nodes = arrayOfConnection.map(
                     n => {
@@ -64,6 +66,7 @@ const parseNodeFile = (file) => (done) => {
     )
 }
 console.log(R.values(allNodes).length)
+let fbase = require("./fbase")
 const onlyIdFn = (x) => x.id
 async.waterfall(
     fileList.map(parseNodeFile), (err, result) => {
@@ -84,6 +87,12 @@ async.waterfall(
         )
         let subNames = {}
         R.map(i => subNames[i.id] = i.name, subNodes)//R.values(R.prop("id"), subNodes) //.map(i=>i.name)
+
+        //
+        //fbase.newData({
+        //    name:dataname,
+        //    graph: graph
+        //})
         fs.writeFile(
             outfile, JSON.stringify(
                 {
