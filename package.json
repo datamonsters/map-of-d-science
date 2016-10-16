@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "alak": "^0.4.32",
-    "arts": "^1.0.5",
+    "arts": "^1.1.13",
     "awesome-typescript-loader": "2.2.0",
     "fast-csv": "^2.1.0",
     "firebase": "^3.4.1",
@@ -28,6 +28,7 @@
     "css-loader": "^0.25.0",
     "html-loader": "^0.4.3",
     "html-minify-loader": "^1.1.0",
+    "image-webpack-loader": "^2.0.0",
     "imports-loader": "^0.6.5",
     "raw-loader": "^0.5.1",
     "script-loader": "^0.7.0",

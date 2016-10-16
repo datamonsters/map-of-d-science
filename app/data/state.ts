@@ -10,31 +10,26 @@ const selectedNode = A.start()  as IAStream<BaseNode>
 const dataType = A.start()
 const searchMode = A.start("select")
 const clearState = A.start()
-
+const graphs = A.start()
 
 
 raw.jsonRaw.on(rawData => {
     data(calc.init(rawData))
 })
 
-
-const mapTypes = {
-    json: () => {
-        raw.jsonRaw.load("./assets/sgraph.json")
-    }
-}
-
-dataType.on(type => A.match(type, mapTypes))
-
+raw.infoGraphs.on(info => {
+    graphs(info)
+})
 
 const state = {
     selectedNode: selectedNode,
     clearState: clearState,
+    graphs: graphs,
     data: data,
     dataType: dataType,
     searchMode: searchMode,
     restore: () => {
-        dataType("json")
+        // dataType("json")
     },
 }
 
