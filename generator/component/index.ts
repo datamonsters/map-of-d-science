@@ -1,6 +1,6 @@
 import {Arts} from "arts"
 import "./<%= name %>.style.css"
-import <%= upCaseName %>ControllerClass from './<%= name %>.controller'
+import <%= upCaseName %>CtrlClass from './<%= name %>.controller'
 const template = require("html!./<%= name %>.template.html")
 
-export default Arts.component<<%= upCaseName %>ControllerClass>('<%= name %>', template, <%= upCaseName %>ControllerClass)
+export default Arts.controller<<%= upCaseName %>ControllerClass>('<%= name %>', template, <%= upCaseName %>CtrlClass)

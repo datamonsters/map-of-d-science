@@ -4,13 +4,13 @@
 	height: 100vh;
 	width: 100vw;
 	background:
-			-webkit-linear-gradient(45deg, hsl(254, 100%, 66%) 0%, hsla(340, 100%, 55%, 0) 70%),
+			-webkit-linear-gradient(45deg, hsl(254, 51%, 40%) 0%, hsla(340, 100%, 55%, 0) 70%),
 			-webkit-linear-gradient(315deg, hsl(249, 100%, 9%) 10%, hsla(225, 95%, 50%, 0) 80%),
 			-webkit-linear-gradient(225deg, hsl(285, 87%, 60%) 10%, hsla(140, 90%, 50%, 0) 80%),
-			-webkit-linear-gradient(135deg, hsl(213, 92%, 70%) 100%, hsla(35, 95%, 55%, 0) 70%);
+			-webkit-linear-gradient(135deg, hsl(244, 45%, 57%) 100%, hsla(35, 95%, 55%, 0) 70%);
 	background:
 			linear-gradient(45deg, hsl(0, 0%, 0%) 0%, hsla(340, 100%, 55%, 0) 70%),
-			linear-gradient(135deg, hsl(239, 94%, 63%) 10%, hsla(225, 95%, 50%, 0) 80%),
+			linear-gradient(135deg, hsl(239, 74%, 28%) 10%, hsla(225, 95%, 50%, 0) 80%),
 			linear-gradient(225deg, hsl(294, 67%, 6%) 10%, hsla(140, 90%, 50%, 0) 80%),
 			linear-gradient(315deg, hsl(214, 94%, 59%) 100%, hsla(35, 95%, 55%, 0) 70%);
 }

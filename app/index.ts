@@ -1,3 +1,4 @@
+import './components/editor/select-dataset';
 import './components/editor/edit-menu';
 import './components/editor';
 import graphlayer from './components/root/graph-layer';
@@ -19,6 +20,7 @@ state.restore()
 const spec = {
     "#e": () => {
         uilayer.place("editor")
+
         // bglayer.controller.tag.update()
         console.log(bglayer.controller)
 

@@ -1,5 +1,6 @@
 import {AController, Tag} from "arts";
-
+let allstars
+let colorful
 export default class BgLayerController implements AController {
     opt: any
     tag: Tag
@@ -8,28 +9,40 @@ export default class BgLayerController implements AController {
     }
 
     onmount() {
-    }
 
+        allstars = document.getElementById("allstars")
+        colorful = document.getElementById("colorful")
 
-
-    editor() {
-        let allstars = document.getElementById("allstars")
         TweenLite.to(allstars, 2, {
-            opacity:0.57,
+            opacity: 0.7,
             // blur:99
         })
 
-        let blurElement = {a:0};//start the blur at 0 pixels
-
-        TweenMax.to(blurElement, 10, {a:3, onUpdate:applyBlur});
-        function applyBlur() {
-            TweenMax.set(['#allstars'], {webkitFilter:"blur(" + blurElement.a + "px)",filter:"blur(" + blurElement.a + "px)"});
-        }
-
-        let colorful = document.getElementById("colorful")
+        let blurElement = {a: 0};//start the blur at 0 pixels
+        TweenMax.to(blurElement, 10, {
+            a: 3, onUpdate: () => {
+                TweenMax.set(['#allstars'], {
+                    webkitFilter: "blur(" + blurElement.a + "px)",
+                    filter: "blur(" + blurElement.a + "px)"
+                })
+            }
+        });
         TweenLite.to(colorful, 2, {
-            opacity:.5
+            opacity:.1
         })
     }
 
+
+    editor() {
+        TweenLite.to(colorful, 2, {
+            opacity: 0.7
+        })
+        TweenLite.to(allstars, 2, {
+            opacity: 0,
+            onComplete:()=>{
+
+                allstars.style.visibility = 'hidden';
+            }
+        })
+    }
 }
