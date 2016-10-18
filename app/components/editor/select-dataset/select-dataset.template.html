@@ -1,0 +1,37 @@
+<div class="ui small modal">
+    <i class="close icon"></i>
+    <div class="header">
+        Select Dataset
+    </div>
+
+    <div class="modalcontent">
+        <div class="infocontent" if="{item}">
+            <h3 class="ui header">{item.name}</h3>
+            <div>
+                <p>{item.time}</p>
+                <div class="ui list">
+                    <div class="item">Nodes: {item.nodesCount}</div>
+                    <div class="item">Edges: {item.edgesCount}</div>
+                </div>
+            </div>
+        </div>
+        <div class="listcontent" >
+            <div class="ui vertical pointing menu scrolling">
+                <a each={list} class="item"
+                   id="{name}"
+                   onclick="{listSelect}">
+                    {name}
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="actions">
+        <div class="ui deny button">
+            Cancel
+        </div>
+        <div class="ui positive right black labeled icon button">
+            Select
+            <i class="checkmark icon"></i>
+        </div>
+    </div>
+</div>
