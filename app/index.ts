@@ -1,6 +1,11 @@
 import './components/editor/select-dataset';
 import './components/editor/edit-menu';
 import './components/editor';
+
+import './components/viewer/info-pane';
+import './components/viewer';
+
+
 import graphlayer from './components/root/graph-layer';
 import bglayer from'./components/root/bg-layer';
 import uilayer from './components/root/ui-layer';
@@ -19,17 +24,15 @@ state.restore()
 const spec = {
     "#e": () => {
         uilayer.place("editor")
-
-        // bglayer.controller.tag.update()
-        console.log(bglayer.controller)
-
-        // console.log(bglayer)
         bglayer.controller.editor()
-        // graphlayer.place("graph-container")
+    },
+
+    "#v": () => {
+        uilayer.place("viewer")
+        bglayer.controller.viewer()
     },
     "": () => {
         uilayer.place("welcome")
-        // graphlayer.place("graph-container")
     }
 }
 

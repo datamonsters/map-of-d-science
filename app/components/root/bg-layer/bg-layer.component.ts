@@ -32,7 +32,22 @@ export default class BgLayerController implements AController {
         })
     }
 
+    viewer() {
 
+        TweenLite.to(document.getElementsByTagName("bg-layer"), 2, {
+            opacity: 0
+        })
+        TweenLite.to(colorful, 2, {
+            opacity: 0
+        })
+        TweenLite.to(allstars, 2, {
+            opacity: 0,
+            onComplete:()=>{
+
+                allstars.style.visibility = 'hidden';
+            }
+        })
+    }
     editor() {
         TweenLite.to(colorful, 2, {
             opacity: 0.7
