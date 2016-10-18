@@ -1,0 +1,134 @@
+<!--<div id="paperhead">-->
+<!--<div id="asearchsign"><i class="search icon"></i></div>-->
+<!--<div id="aname">Data science map 1</div>-->
+<!--<div id="acrosssign"><i class="search icon"></i></div>-->
+<!--</div>-->
+<!--<div id="scrollable">-->
+<!--<div id="adescription">-->
+<!--Индивидуа́ция — одно из основных понятий аналитической психологии К. Г. Юнга, означающее процесс становления личности, такого психологического развития её, при котором реализуются индивидуальные задатки и уникальные особенности человека. К. Г. Юнг (1875–­1961) проводил различие между индивидуализмом и индивидуацией. Индивидуализм – это подчеркивание мнимого своеобразия в противовес коллективным требованиям и обязанностям человека перед обществом; индивидуация же более совершенное исполнение человеком своего предназначения в обществе. Индивидуализм есть противоестественное развитие человека; тогда как индивидуация – естественное развитие, предполагающее самостановление человека.-->
+<!--Индивидуация представляет собой спонтанный, естественный процесс в рамках психической субстанции; потенциально она свойственна любому человеку, хотя большинство из нас её не осознает. В отсутствие торможений, препятствий или искажений, обусловленных тем или иным расстройством психики, индивидуация — это процесс созревания или развертывания, психический эквивалент физического процесса роста и взросления.-->
+<!--</div>-->
+<!--<span><a href="#">More on Wiki</a></span>-->
+<!--<div id="listhead">-->
+<!--Related-->
+<!--</div>-->
+<!--<div class="linkis">checkbox - name</div>-->
+<!--<div class="linkis">checkbox - name</div>-->
+<!--<div class="linkis">checkbox - name</div>-->
+<!--<div class="linkis">checkbox - name</div>-->
+<!--<div class="linkis">checkbox - name</div>-->
+<!--<div class="linkis">checkbox - name</div>-->
+<!--<div class="linkis">checkbox - name</div>-->
+<!--<div class="linkis">checkbox - name</div>-->
+<!--<div class="linkis">checkbox - name</div>-->
+<!--<div class="linkis">checkbox - name</div>-->
+<!--<div class="linkis">checkbox - name</div>-->
+<!--<div class="linkis">checkbox - name</div>-->
+<!--<div class="linkis">checkbox - name</div>-->
+<!--<div class="linkis">checkbox - name</div>-->
+<!--<div class="linkis">checkbox - name</div>-->
+<!--<div class="linkis">checkbox - name</div>-->
+<!--</div>-->
+
+
+
+/*#parent {*/
+/*overflow:hidden;*/
+/*text-overflow-multiline:ellipsis;*/
+/*}*/
+
+body {
+/*background: #222 url('http://bgfons.com/upload/stars_texture2961.jpg') center center;*/
+background-color: lightslategray;
+padding: 10px 10px 10px 10px;
+margin: 0 0 0 0;
+/*height: 100vh;*/
+}
+
+
+
+h1 {
+/*text-trim: ;*/
+color: red;
+
+/*font-color: yellow;*/
+}
+
+#mine {
+}
+
+#paper {
+position: relative;
+padding: 10px 10px 10px 10px;
+margin: 0px 0px 0px 0px;
+width: calc(50vw - 20px);
+/*align-content: flex-end;*/
+/*height: calc(100vh - 500px);*/
+min-width: 400px;
+/*align-content: flex-end;*/
+left: calc(50% - 10px);
+background-color: #eee;
+/*height: 100%;*/
+/*font-face: Arial;*/
+overflow: hidden;
+}
+
+#paperhead {
+display: flex;
+flex-direction: row;
+flex-wrap: nowrap;
+justify-content: center;
+align-content: space-around;
+align-items: center;
+
+/*height: 10vh;*/
+/*text-align: center;*/
+}
+#asearchsign {
+order: 1;
+flex: 0 1 auto;
+align-self: stretch;
+align-content: center;
+width: 40px;
+background-color: #f2c037;
+}
+#acrosssign {
+width: 40px;
+background-color: #f2c037;
+order: 3;
+flex: 0 1 auto;
+align-self: stretch;
+}
+
+#aname {
+order: 2;
+flex: 1 1 auto;
+min-height: 40px;
+/*align-self: stretch;*/
+/*color: #a11;*/
+background-color: aqua;
+font-size: 40px;
+/*align-content: center;*/
+/*align-self: center;*/
+/*height: auto;*/
+/*font-family: 'Comic Sans MS';*/
+padding-top: 6px;
+
+/*width: calc(100% - 80px);*/
+/* ! important, if ellipses */
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+#adescription {
+color: #555;
+background-color: #3f3;
+font-size: 150%;
+line-height: 125%;
+padding-top: 10px;
+/*height: 30vh;*/
+/*white-space: nowrap;*/
+/*overflow: hidden;*/
+/*text-overflow: ellipsis;*/
+
+}
