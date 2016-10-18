@@ -3,7 +3,11 @@
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
+*.idea
 .idea
+
+workspace.xml
+
 idea
 dist
 scripts/rawdata
