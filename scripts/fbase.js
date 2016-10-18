@@ -30,5 +30,5 @@ exports.newData = (data) => {
     }
 
     firebase.database().ref("infographs/"+id).set(info)
-    firebase.database().ref("graphs/"+id).set(data.graph)
+    firebase.database().ref("graphList/"+id).set(data.graph)
 }

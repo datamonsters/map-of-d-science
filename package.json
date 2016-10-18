@@ -10,7 +10,7 @@
     "gen": "node scripts/parse.js"
   },
   "dependencies": {
-    "alak": "^0.4.32",
+    "alak": "^0.4.33",
     "arts": "^1.1.13",
     "awesome-typescript-loader": "2.2.0",
     "fast-csv": "^2.1.0",

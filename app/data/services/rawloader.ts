@@ -15,6 +15,9 @@ firebase.initializeApp(config);
 let infoGraphs = new DataStream(JSON.parse)
 infoGraphs.load("https://map-of-scince.firebaseio.com/infographs.json")
 
+
+
+
 const raw = {
     jsonRaw: jsonRaw,
     infoGraphs: infoGraphs

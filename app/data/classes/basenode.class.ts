@@ -1,5 +1,5 @@
 import {AO, A} from "alak";
-import state from "../data/state";
+import state from "../state";
 let nodesPool: BaseNode[] = []
 let nodesMap: AO<BaseNode> = {}
 
@@ -61,7 +61,7 @@ export default class BaseNode {
         }
 
 
-        state.clearState.on(() => {
+        state.actionClear.on(() => {
             this.state = "clear"
             this.redraw()
         })

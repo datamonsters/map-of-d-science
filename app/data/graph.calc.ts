@@ -1,9 +1,9 @@
-import BaseNode from "../classes/basenode.class";
-import {BaseData} from "../classes/basedata.class";
-import {BaseEdge} from "../classes/baseedge.class";
+import BaseNode from "./classes/basenode.class";
+import {BaseGraph} from "./classes/basegraph.class";
+import {BaseEdge} from "./classes/baseedge.class";
 
 
-function init(rawData): BaseData {
+function init(rawData): BaseGraph {
     console.log("calc start")
     let nodes: BaseNode[] = rawData.graph.map(i => new BaseNode(i))
 
@@ -30,7 +30,7 @@ function init(rawData): BaseData {
     // let edge = R.values(ed)
     let edge = R.values(BaseEdge.unics)
 
-    return new BaseData(
+    return new BaseGraph(
         nodes,
         edge
     )

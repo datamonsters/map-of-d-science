@@ -16,6 +16,7 @@
     "files": [
         "app/definitions/index.d.ts",
         "app/definitions/sigma.d.ts",
+        "app/definitions/jquerry.d.ts",
         "app/definitions/ramda/index.d.ts"
     ]
 }

@@ -1,5 +1,5 @@
 import state from "../../data/state";
-import BaseNode from "../../classes/basenode.class";
+import BaseNode from "../../data/classes/basenode.class";
 
 let arrows = {
     up: "arrow green up icon",
@@ -17,7 +17,7 @@ export default (opt, tag) => {
     tag.resetState = ()=>{
 
         $("#node-search").val("")
-        state.clearState(Math.random())
+        state.actionClear(Math.random())
         tag.nodeName = ""
         tag.nodeSelected = false
         tag.update()
@@ -35,25 +35,25 @@ export default (opt, tag) => {
             $(".search-mode").removeClass('active')
             $(".search-mode."+mode).addClass('active')
         })
-        state.data.on(data => {
-            $('.ui.search')
-                .search({
-                    searchFullText: false,
-                    source: data.nodes.map(x=>{
-                        return {
-                            id:x.id,
-                            description:x.description,
-                            title:x.label
-                        }
-                    }),
-                    onSelect: (result, response) => {
-                        console.log("result", result)
-                        state.selectedNode(BaseNode.map[result.id])
-                    }
-                })
-
-
-        })
+        // state.data.on(data => {
+        //     $('.ui.search')
+        //         .search({
+        //             searchFullText: false,
+        //             source: data.nodes.map(x=>{
+        //                 return {
+        //                     id:x.id,
+        //                     description:x.description,
+        //                     title:x.label
+        //                 }
+        //             }),
+        //             onSelect: (result, response) => {
+        //                 console.log("result", result)
+        //                 state.selectedNode(BaseNode.map[result.id])
+        //             }
+        //         })
+        //
+        //
+        // })
     })
 
 

@@ -1,17 +1,17 @@
 
 import state from "../../data/state";
 import RendererConfigs = SigmaJs.RendererConfigs;
-import {BaseData} from "../../classes/basedata.class";
+import {BaseGraph} from "../../data/classes/basegraph.class";
 
 let s
 
 function init() {
-    state.clearState.on(()=>s.refresh())
+    state.actionClear.on(()=>s.refresh())
     state.selectedNode.on(()=>s.refresh())
 }
 const graphSigma = {
     init: init,
-    draw(data: BaseData) {
+    draw(data: BaseGraph) {
         s = new sigma({
             graph: {
                 nodes: data.nodes,

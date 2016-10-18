@@ -1,5 +1,5 @@
 import state from "../../data/state";
-import BaseNode from "../../classes/basenode.class";
+import BaseNode from "../../data/classes/basenode.class";
 
 let arrows = {
     up: "arrow green up icon",
@@ -40,7 +40,7 @@ export default (opt, tag)=> {
             tag.nodeSelected = true
             tag.update()
         })
-        state.clearState.on(n=>{
+        state.actionClear.on(n=>{
             tag.nodeSelected = false
             tag.update()
         })
