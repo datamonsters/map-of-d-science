@@ -3,7 +3,7 @@
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
-
+.idea
 dist
 scripts/rawdata
 # Folder config file

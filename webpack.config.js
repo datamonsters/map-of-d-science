@@ -35,6 +35,10 @@ module.exports = {
             }
         },
             {test: /\.css$/, loader: "style-loader!css-loader"},
+            {
+                test: /.*\.(gif|png|jpe?g|svg)$/i,
+                loader: 'file'
+            },
             //{test: /\.css$/, exclude: /\.useable\.css$/, loader: "style!css"},
             //{test: /\.useable\.css$/, loader: "style/useable!css"},
             {test: /\.txt/, loader: "raw"},

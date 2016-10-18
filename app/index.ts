@@ -1,16 +1,37 @@
-import "./components/start";
-import "./components/head-up-display";
+import './components/editor/select-dataset';
+import './components/editor/edit-menu';
+import './components/editor';
+import graphlayer from './components/root/graph-layer';
+import bglayer from'./components/root/bg-layer';
+import uilayer from './components/root/ui-layer';
+
+import "./components/head-up-display"
 import './components/graph-container'
 import './components/info-div'
-import state from "./data/state";
+import "./components/welcome"
+
+import './components/root';
+import state from "./data/state"
+import {Arts} from "arts";
 state.restore()
 
 
-var config = {
-    apiKey: "AIzaSyChHe6-FXscOhS-kEKPwbw6wsNdgGkSDcY",
-    authDomain: "map-of-scince.firebaseapp.com",
-    databaseURL: "https://map-of-scince.firebaseio.com",
-    storageBucket: "map-of-scince.appspot.com",
-    messagingSenderId: "414788332482"
-};
-firebase.initializeApp(config);
+
+const spec = {
+    "#e": () => {
+        uilayer.place("editor")
+
+        // bglayer.controller.tag.update()
+        console.log(bglayer.controller)
+
+        // console.log(bglayer)
+        bglayer.controller.editor()
+        // graphlayer.place("graph-container")
+    },
+    "": () => {
+        uilayer.place("welcome")
+        // graphlayer.place("graph-container")
+    }
+}
+
+Arts.route(spec)

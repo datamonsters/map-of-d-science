@@ -1,0 +1,190 @@
+/*#parent {*/
+/*overflow:hidden;*/
+/*text-overflow-multiline:ellipsis;*/
+/*}*/
+
+
+info-pane {
+	font-size: 16px;
+	/*background: #222 url('http://bgfons.com/upload/stars_texture2961.jpg') center center;*/
+
+
+	background-color: lightslategray;
+
+
+	padding: 1rem 1rem 1rem 1rem;
+	margin: 0 0 0 0;
+
+	position: absolute;
+	height: 100vh;
+	width: 100vw;
+}
+
+
+
+#unscrollable {
+
+	float: right;
+	width: 50vw;
+	/*margin-right: 20%*/
+	/*margin: 0 0 0 0;*/
+	padding: 1rem 1rem 1rem 1rem;
+	background-color: lightgray;
+}
+.linkis {
+	padding: 1rem 1.25rem 1.25rem 1.25rem;
+	/*background-color: #00aced;*/
+	width: auto;
+	font-size: 1rem;
+	color: #0d47a1;
+	margin-top: 1px;
+
+}
+
+#scrollable {
+	float: right;
+	width: 50vw;
+
+	/*margin-left: 55%;*/
+	/*margin: 0 0 0 0;*/
+	padding: 0rem 1rem 0rem 1rem;
+	background-color: lightgray;
+	/*background-color: rgba(255,255,255,0.1);*/
+	height: calc(100vh - 8.5rem);
+	overflow: auto;
+	/*overflow-y: visible;*/
+	/*overflow-y: scroll;*/
+}
+#flexwords {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-content: space-around;
+	margin-top: 1rem;
+}
+
+#scrollable::-webkit-scrollbar {
+	width: 1rem;
+}
+
+
+#scrollable::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 2rem rgba(0,0,0,0.2);
+}
+
+#scrollable::-webkit-scrollbar-thumb {
+	background-color: lightgray;
+	outline: 1px solid slategrey;
+}
+#paperhead {
+	/*position: relative;*/
+	/*background-color: #e3f2fd;*/
+	padding: 1rem 1.25rem 1rem 1rem;
+	width: calc(50vw - 7rem);
+	/*left: calc(50vw);*/
+	/*order: 1;*/
+	/*flex: 1 0 calc(50vw-6rem);*/
+	/*min-width: 10rem;*/
+	/*overflow: hidden;*/
+	/*height: 100%;*/
+	/*font-face: Arial;*/
+	/*align-content: flex-end;*/
+	/*height: calc(100vh - 500px);*/
+	/*height: 5.5rem;*/
+	font-size: 2.5rem;
+	line-height: 2.5rem;
+	/*background-color: #e3f2fd;*/
+	float: left;
+}
+
+/*#paperheadflex {*/
+/*display: flex;*/
+/*flex-direction: row;*/
+/*flex-wrap: nowrap;*/
+/*justify-content: flex-end;*/
+/*align-content: space-around;*/
+/*!*align-items: flex-end;*!*/
+/*!*height: 10vh;*!*/
+/*!*text-align: center;*!*/
+/*}*/
+#pane {
+	height: calc(100vh - 2rem);
+	/*overflow: hidden;*/
+}
+#outside {
+	/*background-color: #00b5ad;*/
+	/*overflow-y: visible;*/
+}
+#asearchsign {
+	float: right;
+	width: 4rem;
+	height: 4.5rem;
+	padding-top: 0.4rem;
+	font-size: 1.5rem;
+	text-align: center;
+	line-height: 4.2rem;
+	color: darkgray;
+	/*background-color: #f2c037;*/
+}#ellipsissign {
+	 float: right;
+	 width: 4rem;
+	 height: 4.5rem;
+	 padding-top: 0.4rem;
+	 font-size: 1.5rem;
+	 text-align: center;
+	 line-height: 4.2rem;
+	 color: darkgray;
+	 /*background-color: #f2c037;*/
+ }
+/*transition: all 0.4s ease;*/
+#acrosssign {
+	width: 2.5rem;
+	background-color: #f2c037;
+	order: 3;
+	/*flex: 0 1 auto;*/
+	/*align-self: stretch;*/
+}
+
+#aname {
+	order: 2;
+	flex: 1 1 auto;
+	min-height: 40px;
+	/*align-self: stretch;*/
+	/*color: #a11;*/
+	/*background-color: aqua;*/
+	font-size: 40px;
+	/*align-content: center;*/
+	/*align-self: center;*/
+	/*height: auto;*/
+	/*font-family: 'Comic Sans MS';*/
+	padding-top: 6px;
+
+	/*width: calc(100% - 80px);*/
+	/* ! important, if ellipses */
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+#adescription {
+	color: #555;
+	/*background-color: #3f3;*/
+	font-size: 1rem;
+	padding-left: 1rem;
+	padding-top: 0;
+	/*margin: 0 0 0 0;*/
+	line-height: 125%;
+
+	/*height: 30vh;*/
+	/*white-space: nowrap;*/
+	/*overflow: hidden;*/
+	/*text-overflow: ellipsis;*/
+
+}
+input[type=checkbox] {
+	/* Double-sized Checkboxes */
+	-ms-transform: scale(1.25); /* IE */
+	-moz-transform: scale(1.25); /* FF */
+	-webkit-transform: scale(1.25); /* Safari and Chrome */
+	-o-transform: scale(1.25); /* Opera */
+}
