@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "alak": "^0.4.33",
-    "arts": "^1.1.14",
+    "arts": "^1.1.15",
     "awesome-typescript-loader": "2.2.0",
     "fast-csv": "^2.1.0",
     "firebase": "^3.4.1",
