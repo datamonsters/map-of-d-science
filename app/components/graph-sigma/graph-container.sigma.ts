@@ -1,7 +1,7 @@
-import state from "../../data/state";
+import state from "../../actiondata/state";
 import RendererConfigs = SigmaJs.RendererConfigs;
-import {BaseGraph} from "../../data/classes/graph.class";
-import BaseNode from "../../data/classes/node.class";
+import {BaseGraph} from "../../actiondata/classes/graph.class";
+import BaseNode from "../../actiondata/classes/node.class";
 
 let s
 

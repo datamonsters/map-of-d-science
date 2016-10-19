@@ -1,5 +1,5 @@
 import {AController, Tag} from "arts";
-import state from "../../../data/state";
+import state from "../../../actiondata/state";
 console.log(state)
 
 export default class InfoPaneController implements AController {

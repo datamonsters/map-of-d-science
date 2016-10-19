@@ -1,6 +1,6 @@
 import {AController, Tag} from "arts";
 import graphSigma from "./graph-container.sigma";
-import state from "../../data/state";
+import state from "../../actiondata/state";
 
 export default class GraphSigmaController implements AController {
     opt: any

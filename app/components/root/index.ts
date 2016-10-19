@@ -1,7 +1,6 @@
-import {Arts} from "arts";
+import {Arts} from "arts"
 import "./root.style.css"
-import constructor from './root.component';
+import RootCtrlClass from './root.controller'
 const template = require("html!./root.template.html")
 
-const startComponent = Arts.component('root', template, constructor)
-export default startComponent
+export default Arts.controller<RootCtrlClass>('root', template, RootCtrlClass)

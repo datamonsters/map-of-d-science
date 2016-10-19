@@ -1,7 +1,6 @@
-import {Arts} from "arts";
+import {Arts} from "arts"
 import "./welcome.style.css"
-import constructor from './welcome.component';
+import WelcomeCtrlClass from './welcome.controller'
 const template = require("html!./welcome.template.html")
 
-const startComponent = Arts.component('welcome', template, constructor)
-export default startComponent
+export default Arts.controller<WelcomeCtrlClass>('welcome', template, WelcomeCtrlClass)

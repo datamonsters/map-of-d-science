@@ -1,7 +1,6 @@
-import {Arts} from "arts";
+import {Arts} from "arts"
 import "./editor.style.css"
-import constructor from './editor.component';
+import EditorCtrlClass from './editor.controller'
 const template = require("html!./editor.template.html")
 
-const startComponent = Arts.component('editor', template, constructor)
-export default startComponent
+export default Arts.controller<EditorCtrlClass>('editor', template, EditorCtrlClass)

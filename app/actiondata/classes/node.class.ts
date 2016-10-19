@@ -80,8 +80,8 @@ export default class BaseNode {
             case "select":
                 this.color = "#FF0000"
                 this.size = this._size * 10
-                R.mapObjIndexed(o => o.showIn(), this.edgesIn)
-                R.mapObjIndexed(o => o.showOut(), this.edgesOut)
+                R.mapObjIndexed((o:any) => o.showIn(), this.edgesIn)
+                R.mapObjIndexed((o:any) => o.showOut(), this.edgesOut)
                 break
             case "selectInOut":
                 this.color = "#24F800"

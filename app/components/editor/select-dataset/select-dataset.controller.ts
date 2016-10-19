@@ -1,5 +1,5 @@
 import {AController, Tag} from "arts";
-import state from "../../../data/state";
+import state from "../../../actiondata/state";
 import {A} from "alak";
 
 export default class SelectDatasetController implements AController {
@@ -13,6 +13,7 @@ export default class SelectDatasetController implements AController {
             $(".modalcontent .item").removeClass("active")
             $("#" + item.name).addClass("active")
             this.selected= item
+
             this.tag.update({
                 item: item
             })
@@ -26,6 +27,7 @@ export default class SelectDatasetController implements AController {
 
     onmount() {
 
+        console.log(this.tag)
         state.infoGraphs.on(list => {
             this.tag.update({
                 list: R.values(list)

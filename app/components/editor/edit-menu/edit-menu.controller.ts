@@ -1,5 +1,5 @@
 import {AController, Tag} from "arts";
-import state from "../../../data/state";
+import state from "../../../actiondata/state";
 
 export default class EditMenuController implements AController {
     opt: any
