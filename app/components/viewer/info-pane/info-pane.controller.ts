@@ -1,13 +1,14 @@
 import {AController, Tag} from "arts";
 import state from "../../../actiondata/state";
-console.log(state)
 
 export default class InfoPaneController implements AController {
     opt: any
     tag: Tag
 
     oncreate(opt: any, tag: any) {
-        state.editMode.on(v => tag.update({editmode: v}))
+        // state.editMode.on(v => tag.update({editmode: v}))
+
+        // console.log("opt:", opt)
 
         state.selectedNode.on(node => {
             console.log(node)

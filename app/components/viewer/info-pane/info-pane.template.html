@@ -6,7 +6,7 @@
 	</div>
 	<div id="asearchsign"></div>
 	<div id="ellipsissign"><i class="ellipsis vertical icon"></i></div>
-	<div id="paperhead">Deep learning lorem ipsum</div>
+	<div id="paperhead">{node.label}</div>
 </div>
 
 
@@ -33,54 +33,7 @@
 		<!--<br>-->
 		<!--<span style="padding-left:1rem">Relates articles:</span>-->
 		<div id="flexwords">
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp Shortername</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp nasme</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp Surname</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
+			<div each={node.nodes} class="linkis"><input if={g.editmode} type="checkbox" checked>&nbsp&nbsp {label}</div>
 		</div>
 	</div>
 </div>

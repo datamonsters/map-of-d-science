@@ -9,7 +9,7 @@ export default class DataStream {
                     let data = parser(this.xhr.responseText)
                     if (this._next) this._next(data)
                 } else {
-                    console.log("DataStream.Error", this.xhr.statusText);
+                    console.log("datastream Error", this.xhr.statusText);
                 }
             }
         }
@@ -26,7 +26,7 @@ export default class DataStream {
         if (newurl) {
             this.url = newurl
         }
-        console.log("DataStream.load url", this.url);
+        console.log("datastream load ", this.url);
         this.xhr.open('GET', this.url, true);
         this.xhr.send(null);
         return this

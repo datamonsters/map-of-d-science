@@ -9,7 +9,7 @@ export default class WelcomeController implements AController {
     // }
     //
     // onmount() {
-    //     console.log(component mount: "welcome ")
+    //     console.log("component mount: welcome ")
     // }
 
 }

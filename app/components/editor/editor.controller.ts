@@ -5,11 +5,11 @@ export default class EditorController implements AController {
     tag: Tag
 
     // oncreate(opt: any, tag: any) {
-    //     console.log(component create:"editor ")
+    //     console.log("component create: editor ", opt)
     // }
     //
     // onmount() {
-    //     console.log(component mount: "editor ")
+    //     console.log("component mount: editor ")
     // }
 
 }

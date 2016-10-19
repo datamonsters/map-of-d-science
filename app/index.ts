@@ -13,21 +13,18 @@ import './components/viewer';
 import {Arts} from "arts"
 
 
-let opt
-const spec = {
+Arts.route({
     "#e": () => {
-        opt = {editmode: true}
-        Arts.mount("#layerUi", "editor", opt)
-        Arts.mount("#layerGraph", "graph-sigma", opt)
+        Arts.globalScope({editmode: true})
+        Arts.mount("#layerUi", "editor")
+        Arts.mount("#layerGraph", "graph-sigma")
     },
     "#v": () => {
-        opt = {editmode: false}
-        Arts.mount("#layerUi", "viewer", opt)
-        Arts.mount("#layerGraph", "graph-sigma", opt)
+        Arts.globalScope({editmode: false})
+        Arts.mount("#layerUi", "viewer")
+        Arts.mount("#layerGraph", "graph-sigma")
     },
     "": () => {
         console.log(Arts.mount("#layerUi", "welcome"))
     }
-}
-
-Arts.route(spec)
+})

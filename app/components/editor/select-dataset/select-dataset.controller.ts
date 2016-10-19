@@ -27,8 +27,7 @@ export default class SelectDatasetController implements AController {
 
     onmount() {
 
-        console.log(this.tag)
-        state.infoGraphs.on(list => {
+                state.infoGraphs.on(list => {
             this.tag.update({
                 list: R.values(list)
             })
