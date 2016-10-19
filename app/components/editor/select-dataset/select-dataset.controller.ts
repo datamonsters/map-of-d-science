@@ -5,31 +5,35 @@ import {A} from "alak";
 export default class SelectDatasetController implements AController {
     opt: any
     tag: Tag
-    selected =  A.start()
+    selected
+
     oncreate(opt: any, tag: any) {
         tag.listSelect = x => {
             let item = x.item
             $(".modalcontent .item").removeClass("active")
             $("#" + item.name).addClass("active")
-            this.selected(item)
-        }
-        this.selected.on(i=>{
-            console.log(i)
+            this.selected= item
             this.tag.update({
-                item:i
+                item: item
             })
-        })
+        }
+
+        tag.done = () => {
+            state.dataSet.loadGraphByInfo(this.selected)
+        }
+
     }
 
     onmount() {
 
-        state.graphList.on(list => {
+        state.infoGraphs.on(list => {
             this.tag.update({
                 list: R.values(list)
             })
         })
 
-        // state.graphList.once(x => {
+
+        // state.infoGraphs.once(x => {
         //     $('.ui.modal')
         //         .modal({
         //             "onVisible": () => {

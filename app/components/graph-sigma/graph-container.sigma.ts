@@ -1,13 +1,13 @@
-
 import state from "../../data/state";
 import RendererConfigs = SigmaJs.RendererConfigs;
-import {BaseGraph} from "../../data/classes/basegraph.class";
+import {BaseGraph} from "../../data/classes/graph.class";
+import BaseNode from "../../data/classes/node.class";
 
 let s
 
 function init() {
-    state.actionClear.on(()=>s.refresh())
-    state.selectedNode.on(()=>s.refresh())
+    state.actionClear.on(() => s.refresh())
+    state.selectedNode.on(() => s.refresh())
 }
 const graphSigma = {
     init: init,
@@ -30,27 +30,28 @@ const graphSigma = {
             }
         })
 
-        sigma.renderers.def = sigma.renderers.canvas;
+        sigma.renderers.def = sigma.renderers.canvas
         s.addRenderer({
             container: 'graph-container'
             // type: "webgl"
         })
 
-        var myRenderer = s.renderers[0];
-        myRenderer.glyphs();
+        var myRenderer = s.renderers[0]
+        myRenderer.glyphs()
         myRenderer.bind('render', function (e) {
-            myRenderer.glyphs();
-        });
+            myRenderer.glyphs()
+        })
 
-        let activeState = sigma.plugins.activeState(s);
-        let dragListener = sigma.plugins.dragNodes(s, s.renderers[0], activeState);
-        let select = sigma.plugins.select(s, activeState);
-        let keyboard = sigma.plugins.keyboard(s, s.renderers[0]);
-        select.bindKeyboard(keyboard);
-        sigma.canvas.edges.autoCurve(s);
+        let activeState = sigma.plugins.activeState(s)
+        let dragListener = sigma.plugins.dragNodes(s, s.renderers[0], activeState)
+
+        // let select = sigma.plugins.select(s, activeState);
+        // let keyboard = sigma.plugins.keyboard(s, s.renderers[0]);
+        // select.bindKeyboard(keyboard);
+        // sigma.canvas.edges.autoCurve(s);
         dragListener.bind('startdrag', function (event) {
-            console.log("startdrag", event.node);
-            state.selectedNode(event.data.node)
+            // console.log("startdrag", event.node);
+            state.selectedNode(event.data.node as BaseNode)
         });
         // dragListener.bind('drag', function(event) {
         //     console.log(event);
@@ -75,8 +76,8 @@ const graphSigma = {
         console.log("draw")
 
         setInterval(() => {
-            sigma.layouts.stopForceLink();
-        }, 15000)
+            sigma.layouts.stopForceLink()
+        }, 2000)
 
         // fa.bind('start stop', (e) => console.log(e.type))
         sigma.layouts.startForceLink();

@@ -1,5 +1,5 @@
 
-import BaseNode from "./basenode.class";
+import BaseNode from "./node.class";
 import A from "alak";
 let edgesMap = {}
 let edgesPool: BaseEdge[] = []
@@ -13,7 +13,7 @@ export class BaseEdge {
     public target
     public hidden = true
     public color
-    public size
+    public size = 0.0001
     public uid
 
     constructor(o) {
@@ -40,7 +40,7 @@ export class BaseEdge {
     showOut() {
         this.hidden = false
         this.size = .0001
-        this.color = "#70879C"
+        this.color = "#333"
     }
 
     showIn() {

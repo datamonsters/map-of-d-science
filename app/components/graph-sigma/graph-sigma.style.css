@@ -1,0 +1,16 @@
+graph-sigma {
+	position: absolute;
+	height: 100vh;
+	width: 100vw;
+}
+
+
+#graph-container {
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	position: absolute;
+	pointer-events: auto!important;
+	/*background-color: #fffbf6;*/
+}

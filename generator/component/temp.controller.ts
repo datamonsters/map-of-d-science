@@ -5,11 +5,11 @@ export default class <%= upCaseName %>Controller implements AController {
     tag: Tag
 
     // oncreate(opt: any, tag: any) {
-    //     console.log("<%= name %> component mount")
+    //     console.log(component create:"<%= name %> ")
     // }
     //
     // onmount() {
-    //     console.log("<%= name %> component mount")
+    //     console.log(component mount: "<%= name %> ")
     // }
 
 }

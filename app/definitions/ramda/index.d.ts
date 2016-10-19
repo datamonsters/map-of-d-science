@@ -1688,6 +1688,7 @@ declare namespace Ramda {
          */
         values<T>(obj: {[index: string]: T}): T[];
         values<T>(obj: any): T[];
+        values(obj: any): any[];
 
         /**
          * Returns a list of all the properties, including prototype properties, of the supplied

@@ -10,7 +10,7 @@ export default class BaseNode {
     static colorFade = "#D8D4CF"
     static maxSize = 0
     public id: string = Math.random() + "x"
-    public nodes: any[]
+    public nodes: any[] = []
     public edgesOut = {}
     public edgesIn = {}
     public nodesOut = {}
@@ -25,7 +25,7 @@ export default class BaseNode {
     public _color
     public x = Math.random() * 1500
     public y = Math.random() * 1500
-    public wikiID:string
+    public wikiID: string
     private state = ""
 
     get title() {
@@ -37,8 +37,9 @@ export default class BaseNode {
     }
 
     init(p, colors) {
-        this.wikiID = this.label.replace( /\s/g, "_")
-        this.nodes = this.nodes.map(n=>BaseNode.map[n])
+        this.wikiID = this.label.replace(/\s/g, "_")
+        if (this.nodes)
+            this.nodes = this.nodes.map(n => BaseNode.map[n])
         this.size = this._size = p
         this._color = this.color = colors[BaseNode.maxSize - p]
     }
@@ -48,7 +49,9 @@ export default class BaseNode {
         A.assign(this, o)
         nodesMap[this.id] = this
         nodesPool.push(this)
-        BaseNode.maxSize = Math.max(BaseNode.maxSize, this.nodes.length)
+        console.log()
+
+        BaseNode.maxSize = Math.max(BaseNode.maxSize, this.nodes ? this.nodes.length : 0)
 
         const getState = (nid) => {
             if (nid == this.id) return "select"
@@ -77,6 +80,8 @@ export default class BaseNode {
             case "select":
                 this.color = "#FF0000"
                 this.size = this._size * 10
+                R.mapObjIndexed(o => o.showIn(), this.edgesIn)
+                R.mapObjIndexed(o => o.showOut(), this.edgesOut)
                 break
             case "selectInOut":
                 this.color = "#24F800"

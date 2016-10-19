@@ -1,6 +1,6 @@
 export default (opt, tag)=> {
     tag.on("mount", ()=>{
-        console.log("root component mount")
+        console.log("component mount: root")
 
     })
 }

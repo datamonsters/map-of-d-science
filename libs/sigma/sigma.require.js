@@ -3434,7 +3434,7 @@ if (typeof exports !== 'undefined') {
     // {number} The size of the area around the edges to activate hovering.
     edgeHoverPrecision: 5,
     // {boolean} If set to true, the rescale middleware will ignore node sizes
-    //           to determine the graphList boundings.
+    //           to determine the infoGraphs boundings.
     rescaleIgnoreSize: false,
     // {boolean} Determines if the core has to try to catch errors on
     //           rendering.

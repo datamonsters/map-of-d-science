@@ -9,7 +9,7 @@ info-pane {
 	/*background: #222 url('http://bgfons.com/upload/stars_texture2961.jpg') center center;*/
 
 
-	background-color: lightslategray;
+	/*background-color: lightslategray;*/
 
 
 	padding: 1rem 1rem 1rem 1rem;
@@ -42,6 +42,7 @@ info-pane {
 }
 
 #scrollable {
+	pointer-events: auto!important;
 	float: right;
 	width: 50vw;
 
@@ -50,7 +51,7 @@ info-pane {
 	padding: 0rem 1rem 0rem 1rem;
 	background-color: lightgray;
 	/*background-color: rgba(255,255,255,0.1);*/
-	height: calc(100vh - 8.5rem);
+	max-height: calc(100vh - 8.5rem);
 	overflow: auto;
 	/*overflow-y: visible;*/
 	/*overflow-y: scroll;*/

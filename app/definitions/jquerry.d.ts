@@ -70,7 +70,7 @@ interface JQueryAjaxSettings {
      */
     data?: any;
     /**
-     * A function to be used to handle the raw response data of XMLHttpRequest.This is a pre-filtering function to sanitize the response. You should return the sanitized data. The function accepts two arguments: The raw data returned from the server and the 'dataType' parameter.
+     * A function to be used to handle the loader response data of XMLHttpRequest.This is a pre-filtering function to sanitize the response. You should return the sanitized data. The function accepts two arguments: The loader data returned from the server and the 'dataType' parameter.
      */
     dataFilter? (data: any, ty: any): any;
     /**
@@ -804,7 +804,7 @@ interface JQueryStatic {
     (): JQuery;
 
     /**
-     * Creates DOM elements on the fly from the provided string of raw HTML.
+     * Creates DOM elements on the fly from the provided string of loader HTML.
      *
      * @param html A string of HTML to create on the fly. Note that this parses HTML, not XML.
      * @param ownerDocument A document in which the new elements will be created.
@@ -812,7 +812,7 @@ interface JQueryStatic {
     (html: string, ownerDocument?: Document): JQuery;
 
     /**
-     * Creates DOM elements on the fly from the provided string of raw HTML.
+     * Creates DOM elements on the fly from the provided string of loader HTML.
      *
      * @param html A string defining a single, standalone, HTML element (e.g. <div/> or <div></div>).
      * @param attributes An object of attributes, events, and methods to call on the newly-created element.

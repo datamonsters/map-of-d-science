@@ -1,6 +1,6 @@
 
 <div id="unscrollable">
-	<div id="paperhead">Deep learning</div>
+	<div id="paperhead">{node.label}</div>
 	<div id="asearchsign"><i class="search icon"></i></div>
 	<!--<div id="ellipsissign"><i class="ellipsis vertical icon"></i></div>-->
 </div>
@@ -19,18 +19,7 @@
 		<!--<br>-->
 		<!--<span style="padding-left:1rem">Relates articles:</span>-->
 		<div id="flexwords">
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp Shortername</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp nasme</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp Surname</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
-			<div class="linkis"><input type="checkbox" checked>&nbsp&nbsp name</div>
+			<div each={node.nodes} class="linkis"><input if="{editmode}" type="checkbox" checked><a onclick="{nodeSelect}">&nbsp&nbsp {label}</a></div>
 		</div>
 	</div>
 </div>

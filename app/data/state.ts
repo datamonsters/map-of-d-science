@@ -1,42 +1,42 @@
-import raw from "./services/rawloader";
+import loader from "./services/initdata.loader";
 import {A} from "alak";
 
 import {IAStream} from "alak";
-import BaseNode from "./classes/basenode.class";
-import {BaseGraph} from "./classes/basegraph.class";
+import BaseNode from "./classes/node.class";
+import {BaseGraph} from "./classes/graph.class";
 import {DataSet} from "./classes/dataset.class";
 
-const data = A.start() as IAStream<BaseGraph>
-const selectedNode = A.start()  as IAStream<BaseNode>
-const selectedDataSet = A.start()  as IAStream<DataSet>
-const dataType = A.start()
-const searchMode = A.start("select")
-const clearState = A.start()
-const graphList = A.start()
 
 
-// raw.jsonRaw.on(rawData => {
+
+// loader.jsonRaw.on(rawData => {
 //     data(calc.init(rawData))
 // })
 
-raw.infoGraphs.on(info => {
-    graphList(info)
-})
 
-const state = {
-    dataSet:DataSet,
-    graphList: graphList,
+class State {
+    infoGraphs = loader.infoGraphsStream()
+    data = A.start() as IAStream<BaseGraph>
+    selectedNode = A.start()  as IAStream<BaseNode>
 
-    selectedNode: selectedNode,
-    // selectedDataSetda: selectedDataSet,
+    editMode = A.start()
 
-    actionClear: clearState,
-    data: data,
-    dataType: dataType,
-    searchMode: searchMode,
-    restore: () => {
-        // dataType("json")
-    },
+    dataType = A.start()
+    searchMode = A.start("select")
+    actionClear = A.start()
+
+
+    dataSet:DataSet = new DataSet()
 }
-
+const state = new State()
 export default state
+
+state.dataSet.restore()
+
+
+// state.infoGraphs.on(i=>{
+//     console.log(startInfo)
+//     if (!startInfo){
+//
+//     }
+// })

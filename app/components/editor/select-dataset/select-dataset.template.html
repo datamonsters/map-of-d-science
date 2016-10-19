@@ -8,7 +8,7 @@
         <div class="infocontent" if="{item}">
             <h3 class="ui header">{item.name}</h3>
             <div>
-                <p>{item.time}</p>
+                <p>{item.date}</p>
                 <div class="ui list">
                     <div class="item">Nodes: {item.nodesCount}</div>
                     <div class="item">Edges: {item.edgesCount}</div>
@@ -29,7 +29,7 @@
         <div class="ui deny button">
             Cancel
         </div>
-        <div class="ui positive right black labeled icon button">
+        <div class="ui positive right black labeled icon button" onclick="{done}">
             Select
             <i class="checkmark icon"></i>
         </div>

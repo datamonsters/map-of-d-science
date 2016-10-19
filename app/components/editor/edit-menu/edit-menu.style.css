@@ -1,4 +1,11 @@
 edit-menu {
-	color: #376fff;
-	position: absolute;
+ pointer-events: auto!important;
+}
+
+.spacer{
+	/*color: #376fff;*/
+	/*background-color: red;*/
+	/*background: red;*/
+	/*position: absolute;*/
+	height: 40px;
 }

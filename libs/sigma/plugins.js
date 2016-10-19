@@ -2409,7 +2409,7 @@
       });
 
       // Set an object for the graph label
-      dg.setGraph(this.config);
+      dg.loadGraphById(this.config);
 
       var nodes = this.nodes || this.sigInst.graph.nodes();
       for (var i = 0; i < nodes.length; i++) {
