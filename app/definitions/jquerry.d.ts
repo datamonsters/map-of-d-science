@@ -629,6 +629,7 @@ interface JQueryEasingFunctions {
  * Static members of jQuery (those on $ and jQuery themselves)
  */
 interface JQueryStatic {
+    search:any
 
     /**
      * Perform an asynchronous HTTP (Ajax) request.
@@ -1185,6 +1186,7 @@ interface JQueryStatic {
  */
 interface JQuery {
     modal:any
+    search:any
     /**
      * Register a handler to be called when Ajax requests complete. This is an AjaxEvent.
      *

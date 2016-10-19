@@ -1,8 +1,18 @@
 import {AO, A} from "alak";
 import state from "../state";
+import {BaseEdge} from "./edge.class";
 let nodesPool: BaseNode[] = []
 let nodesMap: AO<BaseNode> = {}
 
+
+let getTwoWayEdges = (target, from) => R.mapObjIndexed(e => {
+    console.log(e)
+
+    // if (BaseEdge.unics[e.uid]) {
+    //
+    // }
+
+},from)
 export default class BaseNode {
     static pool = nodesPool
     static map = nodesMap
@@ -11,6 +21,7 @@ export default class BaseNode {
     static maxSize = 0
     public id: string = Math.random() + "x"
     public nodes: any[] = []
+    public edges: BaseEdge[] = []
     public edgesOut = {}
     public edgesIn = {}
     public nodesOut = {}
@@ -28,12 +39,15 @@ export default class BaseNode {
     public wikiID: string
     private state = ""
 
+    // public title:string
+    // public description:string
+
     get title() {
         return this.label
     }
 
     get description() {
-        return `Nodes - Out:${R.values(this.edgesOut).length}  In:${R.values(this.edgesIn).length}`
+        return `Two ways:${this.nodes.length} - Out:${R.values(this.edgesOut).length}  In:${R.values(this.edgesIn).length}`
     }
 
     init(p, colors) {
@@ -42,6 +56,9 @@ export default class BaseNode {
             this.nodes = this.nodes.map(n => BaseNode.map[n])
         this.size = this._size = p
         this._color = this.color = colors[BaseNode.maxSize - p]
+
+        // this.title = this.label
+        // this.description = "nodes:"+ this.nodes.length
     }
 
 
@@ -49,7 +66,6 @@ export default class BaseNode {
         A.assign(this, o)
         nodesMap[this.id] = this
         nodesPool.push(this)
-        console.log()
 
         BaseNode.maxSize = Math.max(BaseNode.maxSize, this.nodes ? this.nodes.length : 0)
 
@@ -80,8 +96,8 @@ export default class BaseNode {
             case "select":
                 this.color = "#FF0000"
                 this.size = this._size * 10
-                R.mapObjIndexed((o:any) => o.showIn(), this.edgesIn)
-                R.mapObjIndexed((o:any) => o.showOut(), this.edgesOut)
+                R.mapObjIndexed((o: any) => o.showIn(), this.edgesIn)
+                R.mapObjIndexed((o: any) => o.showOut(), this.edgesOut)
                 break
             case "selectInOut":
                 this.color = "#24F800"

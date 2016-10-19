@@ -22,8 +22,17 @@ export default class InfoPaneController implements AController {
     }
 
     //
-    // onmount() {
-    //     console.log("info-pane component mount")
-    // }
+    onmount() {
+        state.dataSet.data.on(g=>{
+            $('#searchnode')
+                .search({
+                    source:g.nodes,
+                    onSelect:state.selectedNode
+
+                })
+
+            ;
+        })
+    }
 
 }

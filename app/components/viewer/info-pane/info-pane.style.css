@@ -3,6 +3,10 @@
 /*text-overflow-multiline:ellipsis;*/
 /*}*/
 
+#searchnode{
+	pointer-events: auto!important;
+	position: absolute;
+}
 
 info-pane {
 	font-size: 16px;
@@ -11,7 +15,6 @@ info-pane {
 	padding: 1rem 1rem 1rem 1rem;
 	margin: 0 0 0 0;
 	position: absolute;
-
 	height: 100vh;
 	width: 100vw;
 }
@@ -28,6 +31,7 @@ info-pane {
 
 
 #unscrollable {
+	pointer-events: auto!important;
 	width: 50vw;
 	/*margin-right: 20%*/
 	/*margin: 0 0 0 0;*/
@@ -40,6 +44,7 @@ info-pane {
 }
 
 #scrollable {
+	pointer-events: auto!important;
 	/*float: right;*/
 	width: 50vw;
 
