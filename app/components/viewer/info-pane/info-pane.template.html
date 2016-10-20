@@ -2,6 +2,14 @@
 
 
 
+<div class="ui search" id="searchnode">
+    <div class="ui icon input">
+        <input class="prompt" type="text" placeholder="Search countries...">
+        <i class="search icon"></i>
+    </div>
+    <div class="results"></div>
+</div>
+
 <div id="unscrollable" if="{node}">
 
     <div id="searchblock">
@@ -12,19 +20,11 @@
         <!--<button id="sb"><i class="search icon"></i></button>-->
     <!--</div>-->
     <div id="asearchsign"></div>
-    <div id="ellipsissign"><i class="ellipsis vertical icon"></i></div>
+    <div id="ellipsissign" onclick="{close}"><i class="ellipsis vertical icon"></i></div>
     <div id="paperhead">{node.label}</div>
 </div>
 
 
-
-<div class="ui search" id="searchnode">
-    <div class="ui icon input">
-        <input class="prompt" type="text" placeholder="Search countries...">
-        <i class="search icon"></i>
-    </div>
-    <div class="results"></div>
-</div>
 
 <!--<div class="ui icon input">-->
 <!--<input type="text" placeholder="Search...">-->
@@ -32,8 +32,8 @@
 <!--</div>-->
 
 <div id="outside" if="{node}">
-    <div id="scrollable">
-        <div id="adescription">
+    <div id="scrollable" >
+        <div id="adescription" if="{false}">
             <details>
                 <summary>Deep learning (also known as deep structured learning, hierarchical learning or deep machine
                     learning) is a branch of machine learning based on a set of algorithms that attempt to model high
@@ -56,8 +56,8 @@
         <!--<br>-->
         <!--<span style="padding-left:1rem">Relates articles:</span>-->
         <div id="flexwords">
-            <div each={node.nodes} class="linkis">
-                <input if={g.editmode} type="checkbox" checked>
+            <div each={node.nodesInOut} class="linkis">
+                <input if={g.editmode} type="checkbox" checked="{isEx(node.id)}" onchange="{changeEx}">
                 <a onclick="{nodeSelect}">&nbsp&nbsp {label}</a>
             </div>
         </div>

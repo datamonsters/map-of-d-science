@@ -4,28 +4,28 @@ import {BaseEdge} from "./edge.class";
 let nodesPool: BaseNode[] = []
 let nodesMap: AO<BaseNode> = {}
 
+let getUID = (...n) => {
+    n.sort((a, b) => b - a)
+    return n.join("-")
+}
 
-let getTwoWayEdges = (target, from) => R.mapObjIndexed(e => {
-    console.log(e)
-
-    // if (BaseEdge.unics[e.uid]) {
-    //
-    // }
-
-},from)
 export default class BaseNode {
+    static clear() {
+        R.empty(nodesMap)
+        R.empty(nodesPool)
+    }
+
     static pool = nodesPool
     static map = nodesMap
-    static colorSubSelected = "#43515D"
-    static colorFade = "#D8D4CF"
     static maxSize = 0
     public id: string = Math.random() + "x"
     public nodes: any[] = []
-    public edges: BaseEdge[] = []
+    public edgesIoOut: BaseEdge[] = []
     public edgesOut = {}
     public edgesIn = {}
     public nodesOut = {}
     public nodesIn = {}
+    public nodesInOut = []
     public label
     public size
     public _size
@@ -42,6 +42,12 @@ export default class BaseNode {
     // public title:string
     // public description:string
 
+    isEx(id) {
+        let uid = getUID(this.id, id)
+        // console.log(uid, BaseEdge.exClear, BaseEdge.exClear[uid])
+        if (BaseEdge.exClear[uid]) return false
+        return true
+    }
     get title() {
         return this.label
     }
@@ -56,9 +62,6 @@ export default class BaseNode {
             this.nodes = this.nodes.map(n => BaseNode.map[n])
         this.size = this._size = p
         this._color = this.color = colors[BaseNode.maxSize - p]
-
-        // this.title = this.label
-        // this.description = "nodes:"+ this.nodes.length
     }
 
 
@@ -79,13 +82,12 @@ export default class BaseNode {
             else return "fade"
         }
 
-
-        state.actionClear.on(() => {
-            this.state = "clear"
-            this.redraw()
-        })
         state.selectedNode.on(n => {
-            this.state = getState(n.id)
+            if (n) {
+                this.state = getState(n.id)
+            } else {
+                this.state = "clear"
+            }
             this.redraw()
         })
     }
@@ -116,7 +118,7 @@ export default class BaseNode {
                 this.size = this._size
                 break
             case "fade":
-                this.color = BaseNode.colorFade
+                this.color = "#D8D4CF"
                 this.size = this._size
                 break
             case "selectHidden":

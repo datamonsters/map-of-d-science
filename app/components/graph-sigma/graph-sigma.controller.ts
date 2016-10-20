@@ -11,9 +11,9 @@ export default class GraphSigmaController implements AController {
     // }
     //
     onmount() {
-        graphSigma.init()
-        state.dataSet.data.on(graphSigma.draw)
         console.log("component mount: graph-sigma")
+        graphSigma.init()
+
     }
 
 }

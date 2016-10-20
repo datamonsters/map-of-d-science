@@ -25,18 +25,10 @@ class State {
     searchMode = A.start("select")
     actionClear = A.start()
 
-
     dataSet:DataSet = new DataSet()
+    force = A.start(false)
 }
 const state = new State()
 export default state
 
 state.dataSet.restore()
-
-
-// state.infoGraphs.on(i=>{
-//     console.log(startInfo)
-//     if (!startInfo){
-//
-//     }
-// })

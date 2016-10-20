@@ -2,8 +2,9 @@ import BaseNode from "./node.class";
 import {BaseGraph} from "./graph.class";
 import {BaseEdge} from "./edge.class";
 
-
 function init(rawData): BaseGraph {
+    BaseEdge.clear()
+    BaseNode.clear()
     let nodes: BaseNode[] = rawData.map(i => new BaseNode(i))
     let mainEdges = []
     nodes.forEach(n => {
@@ -16,26 +17,20 @@ function init(rawData): BaseGraph {
             }))
         })
     })
-
-
     nodes.sort((n1, n2) => n1._size - n2._size)
-
     let defiedColors = chroma.scale(['#A4B5BD', '#565F63']).colors(BaseNode.maxSize)
-
     for (let i = 0; i < nodes.length; i++) {
         nodes[i].init(i, defiedColors)
     }
 
-    // let edge = R.values(ed)
-    let edge = R.values(BaseEdge.unics)
+    BaseEdge.init()
 
     return new BaseGraph(
         nodes,
-        edge
+        BaseEdge.upool
     )
 }
 const calc = {
     init: init
 }
-
 export default calc
