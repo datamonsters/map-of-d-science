@@ -94,21 +94,21 @@ export default class BaseNode {
     redraw() {
         switch (this.state) {
             case "select":
-                this.color = "#FF0000"
+                this.color = "#909090"
                 this.size = this._size * 10
                 R.mapObjIndexed((o: any) => o.showIn(), this.edgesIn)
                 R.mapObjIndexed((o: any) => o.showOut(), this.edgesOut)
                 break
             case "selectInOut":
-                this.color = "#24F800"
+                this.color = "#61b0ff"
                 this.size = this._size * 10
                 break
             case "selectIn":
-                this.color = "#FFD700"
+                this.color = "#2bf0f0"
                 this.size = this._size * 10
                 break
             case "selectOut":
-                this.color = "#26BEFB"
+                this.color = "#f285f2"
                 this.size = this._size * 10
                 break
             case "clear":

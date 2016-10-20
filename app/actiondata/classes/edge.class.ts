@@ -39,19 +39,20 @@ export class BaseEdge {
 
     showOut() {
         this.hidden = false
-        this.size = .0001
-        this.color = "#333"
+        this.size = .5
+        this.color = "#baffff"
     }
 
     showIn() {
         this.hidden = false
-        this.size = .0001
-        this.color = BaseNode.colorFade
+        this.size = .5
+        this.color = "#ffdaff"
+        //BaseNode.colorFade
     }
 
     hide() {
         this.hidden = true
-        this.size = .0001
+        this.size = .5
     }
 
 }
