@@ -1,13 +1,65 @@
-
 import BaseNode from "./node.class";
 import A from "alak";
+import state from "../state";
 let edgesMap = {}
 let edgesPool: BaseEdge[] = []
+let alluncalMap = {}
+let exMap = {}
+let exClearMap = {}
 let uncalMap = {}
+let uncalPool: BaseEdge[] = []
+
+
+let getUID = (...n) => {
+    n.sort((a, b) => b - a)
+    return n.join("-")
+}
 export class BaseEdge {
-    static pool: BaseEdge[] = edgesPool
-    static map = edgesMap
-    static unics = uncalMap
+    // static pool: BaseEdge[] = edgesPool
+    // static map = edgesMap
+    // static umap: BaseEdge[]
+    static get upool() {
+        return uncalPool
+    }
+    static get exClear() {
+        return exClearMap
+    }
+
+    static clear() {
+        exMap = {}
+        edgesMap = {}
+        edgesPool = []
+        alluncalMap = {}
+        uncalMap = {}
+        uncalPool = []
+        exClearMap = {}
+    }
+
+    static init(ext?) {
+        uncalPool = []
+        if (ext) exMap = ext
+        exClearMap = {}
+        R.mapObjIndexed((v, k) => {
+            if (v) exClearMap[k] = true
+        }, exMap)
+        R.values<BaseEdge>(uncalMap).forEach(e => {
+            if (!exMap[e.uid]) uncalPool.push(e)
+        })
+
+        BaseNode.pool.forEach(n => {
+            n.edgesIoOut = []
+            n.nodesInOut = []
+        })
+        console.log("redraw")
+
+        R.values<BaseEdge>(uncalMap).forEach(e => {
+            BaseNode.map[e.source].edgesIoOut.push(e)
+            BaseNode.map[e.target].edgesIoOut.push(e)
+            BaseNode.map[e.target].nodesInOut.push(BaseNode.map[e.source])
+            BaseNode.map[e.source].nodesInOut.push(BaseNode.map[e.target])
+        })
+    }
+
     public id
     public source
     public target
@@ -21,8 +73,13 @@ export class BaseEdge {
         edgesMap[this.id] = this
         edgesPool.push(this)
 
-        this.uid = (this.source + 1111) * (this.target + 1111)
-        uncalMap[this.uid] = this
+        this.uid = getUID(this.target, this.source)
+        if (alluncalMap[this.uid]) {
+            uncalMap[this.uid] = this
+        } else {
+            alluncalMap[this.uid] = this
+        }
+
 
         let source = BaseNode.map[this.source]
         let target = BaseNode.map[this.target]
@@ -55,4 +112,13 @@ export class BaseEdge {
         this.size = .5
     }
 
+    static setEx(id: string, id2, checked: boolean) {
+        let uid = getUID(+id, +id2)
+        exMap[uid] = !checked
+        BaseEdge.init()
+        // state.
+        let d = state.dataSet.data()
+        d.edges = BaseEdge.upool
+        state.dataSet.data(d)
+    }
 }
