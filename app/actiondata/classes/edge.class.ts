@@ -96,6 +96,8 @@ export class BaseEdge {
 
     showOut() {
         this.hidden = false
+        this.size = .0001
+        this.color = "#555FFF"
         this.size = .5
         this.color = "#baffff"
     }
