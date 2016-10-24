@@ -6,11 +6,13 @@ ehthumbs.db
 *.idea
 .idea
 
+
 workspace.xml
 
 idea
 dist
 scripts/rawdata
+scripts/uploads/*
 # Folder config file
 Desktop.ini
 

@@ -1,10 +1,11 @@
-welcome {
+#welcome {
+	z-index: 11112;
+	pointer-events: auto!important;
 	position: absolute;
-	height: 100vh;
-	width: 100vw;
+	/*height: 100vh;*/
+	/*width: 100vw;*/
 
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	pointer-events: auto!important;
 }
