@@ -98,17 +98,20 @@ export class BaseEdge {
         this.hidden = false
         this.size = .0001
         this.color = "#555FFF"
+        this.size = .5
+        this.color = "#baffff"
     }
 
     showIn() {
         this.hidden = false
-        this.size = .0001
-        this.color = "#555FFF"
+        this.size = .5
+        this.color = "#ffdaff"
+        //BaseNode.colorFade
     }
 
     hide() {
         this.hidden = true
-        this.size = .0001
+        this.size = .5
     }
 
     static setEx(id: string, id2, checked: boolean) {

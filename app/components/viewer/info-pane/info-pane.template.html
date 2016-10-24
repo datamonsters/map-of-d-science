@@ -4,25 +4,23 @@
 
 <div class="ui search" id="searchnode">
     <div class="ui icon input">
-        <input class="prompt" type="text" placeholder="Search countries...">
+        <input id="si" class="prompt" type="text" placeholder="Find Data Science World's Articles">
         <i class="search icon"></i>
     </div>
     <div class="results"></div>
 </div>
 
-<div id="unscrollable" if="{node}">
-
-    <div id="searchblock">
-    </div>
+<!--<div id="unscrollable" if="{node}">-->
 
     <!--<div id="searchblock">-->
         <!--<input type="search" id="si" placeholder="Search Articles in Data Science" onclick="" oninput="">-->
         <!--<button id="sb"><i class="search icon"></i></button>-->
     <!--</div>-->
-    <div id="asearchsign"></div>
-    <div id="ellipsissign" onclick="{close}"><i class="ellipsis vertical icon"></i></div>
-    <div id="paperhead">{node.label}</div>
-</div>
+    <!--<div id="asearchsign"></div>-->
+    <!--<div id="ellipsissign"><i class="ellipsis vertical icon"></i></div>-->
+    <div id="paperhead" if="{node}">{node.label}</div>
+<!--</div>-->
+
 
 
 
@@ -48,11 +46,11 @@
                     replacing handcrafted features with efficient algorithms for unsupervised or semi-supervised feature
                     learning and hierarchical feature extraction.</p>
             </details>                        <!--</div>-->
-        </div>
 
 
         <!--<span style="padding-left:1rem" onclick="document.adescription.style.overflow=visible"><a href="#" >See more</a></span>-->
         <span style="padding-left:1rem; line-height: 1.5rem; font-size: 1rem;"><a href="#">Wikipedia</a></span>
+        </div>
         <!--<br>-->
         <!--<span style="padding-left:1rem">Relates articles:</span>-->
         <div id="flexwords">
