@@ -1,4 +1,5 @@
 import state from "../state";
+import firebase from "firebase";
 var config = {
     apiKey: "AIzaSyChHe6-FXscOhS-kEKPwbw6wsNdgGkSDcY",
     authDomain: "map-of-scince.firebaseapp.com",
@@ -13,7 +14,7 @@ const writer = {
     writeEx(exdata){
         console.log(exdata)
         let g = state.dataSet.data()
-        firebase.database().ref("ex/" + g.info.id + "/").push({
+        firebase.database().ref("exception").push({
             ex: exdata,
             id: g.info.id,
             name: g.info.name,

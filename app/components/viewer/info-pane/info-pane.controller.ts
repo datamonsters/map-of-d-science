@@ -16,8 +16,6 @@ export default class InfoPaneController implements AController {
         let current: BaseNode
         state.selectedNode.on(node => {
             current = node
-            console.log("node", node)
-
             tag.update({
                 node: node
             })
@@ -39,8 +37,10 @@ export default class InfoPaneController implements AController {
             $('#searchnode')
                 .search({
                     source: g.nodes,
-                    onSelect: state.selectedNode
-
+                    onSelect: state.selectedNode,
+                    searchFields   : [
+                        'name'
+                    ]
                 })
 
             ;

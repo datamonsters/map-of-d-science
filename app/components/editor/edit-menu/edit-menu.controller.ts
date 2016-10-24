@@ -13,8 +13,12 @@ export default class EditMenuController implements AController {
                 .modal('show')
         }
         tag.savePosition = writer.writeCoords
-        tag.saveEx = ()=>{
-            writer.writeEx(BaseEdge.exClear)
+        tag.saveEx = () => {
+            if (BaseEdge.timeout) {
+                setTimeout(() => writer.writeEx(BaseEdge.exClear), 2000)
+            } else {
+                writer.writeEx(BaseEdge.exClear)
+            }
         }
 
         tag.force = "play"
@@ -22,7 +26,7 @@ export default class EditMenuController implements AController {
             let nv = state.force()
             state.force(!nv)
             tag.update({
-                force:!nv ? "stop" : "play"
+                force: !nv ? "stop" : "play"
             })
         }
         state.dataSet.graph.on(g => tag.update({

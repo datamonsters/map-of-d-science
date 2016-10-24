@@ -6,8 +6,10 @@ import BaseNode from "../../actiondata/classes/node.class";
 let s
 
 function init() {
-    state.actionClear.on(() => s.refresh())
-    state.selectedNode.on(() => s.refresh())
+    state.actionClear.on(() => setTimeout(()=>s.refresh(), 100))
+    state.selectedNode.on(() => {
+        setTimeout(()=>s.refresh(), 100)
+    })
     state.force.on(v => {
         if (v) sigma.layouts.startForceLink()
         else sigma.layouts.stopForceLink()

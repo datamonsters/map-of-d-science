@@ -24,13 +24,12 @@ export class DataSet {
 
         A.mix(this.graph, this.coords, this.ext).on(() => {
             let g = this.graph()
-            let c:any = this.coords()
+            let c: any = this.coords()
             if (c) {
                 g.nodes.forEach(n => {
-                    let nc = c.coords[+n.id]
+                    let nc = c.coords[n.id]
                     if (!nc) {
-                        console.log(":::", n.id, c)
-
+                        console.info("::: mssing node ID", n.id)
                     } else {
                         n.x = nc.x
                         n.y = nc.y
@@ -40,8 +39,8 @@ export class DataSet {
 
 
             let ex = (this.ext() as any).ex
-            if (ex){
-                console.log("ex:",ex)
+            if (ex) {
+                console.log("ex:", ex)
                 BaseEdge.init(ex)
                 g.edges = BaseEdge.upool
             }

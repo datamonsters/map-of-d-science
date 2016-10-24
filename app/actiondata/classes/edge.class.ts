@@ -10,11 +10,30 @@ let uncalMap = {}
 let uncalPool: BaseEdge[] = []
 
 
-let getUID = (...n) => {
-    n.sort((a, b) => b - a)
-    return n.join("-")
+let a
+export const getUID = (...n) => {
+    a = n.map(x=>{
+        return x.slice(1)
+    })
+    a.sort((a, b) => b - a)
+    return a.join("-")
 }
+let timeout
 export class BaseEdge {
+    static get timeout(){return timeout}
+    static setEx(id: string, id2:string, checked: boolean) {
+        let uid = getUID(id, id2)
+        exMap[uid] = !checked
+
+        if (timeout) clearTimeout(timeout)
+        timeout = setTimeout(()=>{
+            BaseEdge.init()
+            let d = state.dataSet.data()
+            d.edges = BaseEdge.upool
+            state.dataSet.data(d)
+            timeout = null
+        }, 1900)
+    }
     // static pool: BaseEdge[] = edgesPool
     // static map = edgesMap
     // static umap: BaseEdge[]
@@ -35,10 +54,14 @@ export class BaseEdge {
         exClearMap = {}
     }
 
+
+
+
     static init(ext?) {
         uncalPool = []
         if (ext) exMap = ext
         exClearMap = {}
+
         R.mapObjIndexed((v, k) => {
             if (v) exClearMap[k] = true
         }, exMap)
@@ -50,7 +73,7 @@ export class BaseEdge {
             n.edgesIoOut = []
             n.nodesInOut = []
         })
-        console.log("redraw")
+        console.log("init edges")
 
         R.values<BaseEdge>(uncalMap).forEach(e => {
             BaseNode.map[e.source].edgesIoOut.push(e)
@@ -61,8 +84,8 @@ export class BaseEdge {
     }
 
     public id
-    public source
-    public target
+    public source:string
+    public target:string
     public hidden = true
     public color
     public size = 0.0001
@@ -97,30 +120,21 @@ export class BaseEdge {
     showOut() {
         this.hidden = false
         this.size = .0001
-        this.color = "#555FFF"
+        this.color = "#eee"
         this.size = .5
-        this.color = "#baffff"
+        // this.color = "#baffff"
     }
 
     showIn() {
         this.hidden = false
         this.size = .5
-        this.color = "#ffdaff"
+        this.color = "#eee"
+        // this.color = "#ffdaff"
         //BaseNode.colorFade
     }
 
     hide() {
         this.hidden = true
         this.size = .5
-    }
-
-    static setEx(id: string, id2, checked: boolean) {
-        let uid = getUID(+id, +id2)
-        exMap[uid] = !checked
-        BaseEdge.init()
-        // state.
-        let d = state.dataSet.data()
-        d.edges = BaseEdge.upool
-        state.dataSet.data(d)
     }
 }

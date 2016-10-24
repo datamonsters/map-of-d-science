@@ -1,13 +1,9 @@
 import {AO, A} from "alak";
 import state from "../state";
-import {BaseEdge} from "./edge.class";
+import {BaseEdge, getUID} from "./edge.class";
 let nodesPool: BaseNode[] = []
 let nodesMap: AO<BaseNode> = {}
 
-let getUID = (...n) => {
-    n.sort((a, b) => b - a)
-    return n.join("-")
-}
 
 export default class BaseNode {
     static clear() {
@@ -26,7 +22,8 @@ export default class BaseNode {
     public nodesOut = {}
     public nodesIn = {}
     public nodesInOut = []
-    public label
+    // public label
+    public name
     public size
     public _size
     public linkCount = 0
@@ -44,20 +41,22 @@ export default class BaseNode {
 
     isEx(id) {
         let uid = getUID(this.id, id)
-        // console.log(uid, BaseEdge.exClear, BaseEdge.exClear[uid])
         if (BaseEdge.exClear[uid]) return false
         return true
     }
     get title() {
-        return this.label
+        return this.name
+    }
+    get label() {
+        return this.name
     }
 
     get description() {
-        return `Two ways:${this.nodes.length} - Out:${R.values(this.edgesOut).length}  In:${R.values(this.edgesIn).length}`
+        return `Two ways:${this.nodesInOut.length} - Out:${R.values(this.edgesOut).length}  In:${R.values(this.edgesIn).length}`
     }
 
     init(p, colors) {
-        this.wikiID = this.label.replace(/\s/g, "_")
+        // this.wikiID = this.label.replace(/\s/g, "_")
         if (this.nodes)
             this.nodes = this.nodes.map(n => BaseNode.map[n])
         this.size = this._size = p

@@ -16,6 +16,7 @@ import {DataSet} from "./classes/dataset.class";
 
 class State {
     infoGraphs = loader.infoGraphsStream()
+    infoWiki = loader.infoWikiStream()
     data = A.start() as IAStream<BaseGraph>
     selectedNode = A.start()  as IAStream<BaseNode>
 

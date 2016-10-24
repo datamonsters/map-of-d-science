@@ -1,16 +1,24 @@
 import A from "alak";
+import firebase from "firebase";
+
+
 
 import DataStream from "./datastream";
 import state from "../state";
 import {InfoGraph} from "../classes/infograph.class";
-let jsonRaw = new DataStream(JSON.parse)
-
 
 const raw = {
+    infoWikiStream: () => {
+        const stream = A.start()
+        let infoStream = new DataStream(JSON.parse)
+        infoStream.load("https://map-of-scince.firebaseio.com/infoWiki.json")
+        infoStream.on(stream)
+        return stream
+    },
     infoGraphsStream: () => {
         const stream = A.start()
         let infoGraphs = new DataStream(JSON.parse)
-        infoGraphs.load("https://map-of-scince.firebaseio.com/infographs.json")
+        infoGraphs.load("https://map-of-scince.firebaseio.com/infoGraphs.json")
         infoGraphs.on(list => {
                 stream(R.mapObjIndexed((i => new InfoGraph(i)), list))
             }
@@ -21,7 +29,7 @@ const raw = {
     lastExt: (id: string) => {
         console.log("get ext :", id)
         const stream = A.start()
-        let starCountRef = firebase.database().ref('ex/' + id).limitToLast(1);
+        let starCountRef = firebase.database().ref('exception').limitToLast(1);
         starCountRef.on('value', function (snapshot) {
 
             console.log("get ext numChildren :", snapshot.numChildren())

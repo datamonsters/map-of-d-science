@@ -2,7 +2,9 @@
 /*overflow:hidden;*/
 /*text-overflow-multiline:ellipsis;*/
 /*}*/
-
+.pointing{
+	cursor: pointer!important;
+}
 #searchnode{
 	pointer-events: auto!important;
 	/*position: absolute;*/
