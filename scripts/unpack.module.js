@@ -36,6 +36,7 @@ module.exports.do = (filePath, filename) => {
     )
     console.log(nodes.length)
     let ids = fbase.getKeys()
+    let nids = {}
     nodes.forEach(
         n => {
             let k = ids[n.name]
@@ -51,18 +52,17 @@ module.exports.do = (filePath, filename) => {
             } else {
                 uid = k.uid
             }
-            n.uid = uid
+            nids[n.name] = n.uid = uid
         }
     )
-
-    //let nids = R.indexBy(R.prop("name"), nodes)
     nodes.forEach(
         n => {
             let childNodes = []
-            n.nodes.forEach(cn=>{
-                if (ids[cn])
-                childNodes.push(ids[cn].uid)
-                edgeCount++
+            n.nodes.forEach(node_name=>{
+                if (nids[node_name]) {
+                    childNodes.push(nids[node_name])
+                    edgeCount++
+                }
             })
             n.nodes = childNodes
         }
