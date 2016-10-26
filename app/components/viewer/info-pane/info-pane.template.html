@@ -1,30 +1,28 @@
 <div class="ui search" id="searchnode">
     <div class="ui icon input">
-        <input id="si" class="prompt" type="text" placeholder="Find Data Science World's Articles">
+        <input id="si" class="prompt" type="text" placeholder="Find Data Science Articles">
         <i class="search icon"></i>
     </div>
     <div class="results"></div>
 </div>
 
-<div id="paperhead" if="{node}">{node.label}</div>
-
 
 <div id="outside" if="{node}">
     <div id="scrollable">
-        <div id="adescription">
-            <details>
-                <summary>{node.name}
+        <h1 id="adescription">
+            <details open="{!g.editmode}">
+                <summary><h1>{node.name}</h1>
                 </summary>
                 <p>{node.info}</p>
-                <span style="padding-left:1rem; line-height: 1.5rem; font-size: 1rem;"><a href="#">Wikipedia</a></span>
+                <span style="padding-left:1rem; line-height: 1.5rem; font-size: 1rem;"><a href="#">Wikipedia link</a></span>
             </details>
 
-        </div>
-        <div id="flexwords">
-            <div each={node.nodesInOut} class="linkis">
-                <input if={g.editmode} type="checkbox" checked="{isEx(node.id)}" onchange="{changeEx}">
-                <a class="pointing" onclick="{nodeSelect}">&nbsp&nbsp {name}</a>
+            <h2>&nbsp&nbsp Related Topics</h2>
+            <div id="flexwords">
+                <div each={node.nodesInOut} class="linkis">
+                    <input if={g.editmode} type="checkbox" checked="{isEx(node.id)}" onchange="{changeEx}">
+                    <a class="pointing" onclick="{nodeSelect}">&nbsp&nbsp {name}</a>
+                </div>
             </div>
-        </div>
     </div>
 </div>

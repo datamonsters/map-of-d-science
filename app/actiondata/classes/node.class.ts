@@ -44,15 +44,17 @@ export default class BaseNode {
         if (BaseEdge.exClear[uid]) return false
         return true
     }
+
     get title() {
         return this.name
     }
+
     get label() {
         return this.name
     }
 
     get description() {
-        return `Two ways:${this.nodesInOut.length} - Out:${R.values(this.edgesOut).length}  In:${R.values(this.edgesIn).length}`
+        return `Related Topics: ${this.nodesInOut.length} `
     }
 
     init(p, colors) {
@@ -60,7 +62,8 @@ export default class BaseNode {
         if (this.nodes)
             this.nodes = this.nodes.map(n => BaseNode.map[n])
         this.size = this._size = p
-        this._color = this.color = colors[BaseNode.maxSize - p]
+
+        this._color = this.color = colors[p]
     }
 
 
@@ -92,13 +95,15 @@ export default class BaseNode {
     }
 
 
+    _state
+
     redraw() {
         switch (this.state) {
             case "select":
                 this.color = "#909090"
                 this.size = this._size * 10
-                R.mapObjIndexed((o: any) => o.showIn(), this.edgesIn)
-                R.mapObjIndexed((o: any) => o.showOut(), this.edgesOut)
+                setTimeout(() => this.edgesIoOut.forEach(e => e.showIn()), 1)
+                this._state = this.state
                 break
             case "selectInOut":
                 this.color = "#61b0ff"
@@ -125,5 +130,10 @@ export default class BaseNode {
                 this.size = this._size + 1000
                 break
         }
+
+        if (this._state != this.state) {
+            this.edgesIoOut.forEach(e => e.hide())
+        }
+        this._state = this.state
     }
 }

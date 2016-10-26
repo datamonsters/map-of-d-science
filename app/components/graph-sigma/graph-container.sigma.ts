@@ -6,9 +6,9 @@ import BaseNode from "../../actiondata/classes/node.class";
 let s
 
 function init() {
-    state.actionClear.on(() => setTimeout(()=>s.refresh(), 100))
+    state.actionClear.on(() => setTimeout(() => s.refresh(), 100))
     state.selectedNode.on(() => {
-        setTimeout(()=>s.refresh(), 100)
+        setTimeout(() => s.refresh(), 100)
     })
     state.force.on(v => {
         if (v) sigma.layouts.startForceLink()
@@ -51,10 +51,15 @@ function init() {
     let activeState = sigma.plugins.activeState(s)
     let dragListener = sigma.plugins.dragNodes(s, s.renderers[0], activeState)
     dragListener.bind('startdrag', function (event) {
-        state.selectedNode(event.data.node as BaseNode)
+        if (event.data.node == state.selectedNode())
+            { //noinspection TypeScriptValidateTypes
+                state.selectedNode(false)
+            }
+        else
+            state.selectedNode(event.data.node as BaseNode)
     })
 
-    state.dataSet.data.on((data: BaseGraph)=>{
+    state.dataSet.data.on((data: BaseGraph) => {
         console.log("sigma redraw graph:", data.nodes.length, data.edges.length)
         s.graph.clear()
         s.graph.read(data)

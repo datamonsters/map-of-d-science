@@ -107,7 +107,6 @@ export class BaseEdge {
         let source = BaseNode.map[this.source]
         let target = BaseNode.map[this.target]
         source.edgesOut[this.id] = this
-        console.log(":::::",target,this)
         if (!target) {
             console.log(BaseNode.map)
         }

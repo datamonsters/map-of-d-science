@@ -21,7 +21,7 @@ function init(rawData): BaseGraph {
 
 
     nodes.sort((n1, n2) => n1._size - n2._size)
-    let defiedColors = chroma.scale(['#A4B5BD', '#565F63']).colors(BaseNode.maxSize)
+    let defiedColors = chroma.scale([ '#525a5e', '#839097']).colors(BaseNode.pool.length+1)
     for (let i = 0; i < nodes.length; i++) {
         nodes[i].init(i, defiedColors)
     }
