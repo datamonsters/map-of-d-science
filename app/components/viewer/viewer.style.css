@@ -1,6 +1,279 @@
+/*#parent {*/
+/*overflow:hidden;*/
+/*text-overflow-multiline:ellipsis;*/
+/*}*/
+.pointing {
+	cursor: pointer !important;
+}
+
+#searchnode {
+	pointer-events: auto !important;
+	/*position: absolute;*/
+}
+
 viewer {
-	/*visibility: hidden;*/
+	/*z-index: 999999!important;*/
+	font-size: 16px;
+	/*background: #222 url('http://bgfons.com/upload/stars_texture2961.jpg') center center;*/
+	/*background-color: lightslategray;*/
+	padding: 1rem 1rem 1rem 1rem;
+	margin: 0 0 0 0;
 	position: absolute;
-	/*height: 100vh;*/
+	height: 100vh;
 	width: 100vw;
+}
+.view-container {
+	position: absolute;
+	height: 100vh;
+	width: 100vw;
+}
+
+/*#pane {*/
+/*height: calc(100vh - 15rem);*/
+/*overflow: hidden;*/
+/*}*/
+
+#outside {
+	/*background-color: #00b5ad;*/
+	/*overflow-y: visible;*/
+}
+
+#unscrollable {
+	pointer-events: auto !important;
+	width: 40vw;
+	/*margin-right: 20%*/
+	/*margin: 0 0 0 0;*/
+	padding: 0.25rem 0.25rem 0.25rem 0.25rem;
+	background-color: lightgray;
+	display: -webkit-flex;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+}
+
+#scrollable {
+	pointer-events: auto !important;
+	/*float: right;*/
+	width: 40vw;
+
+	/*margin-left: 55%;*/
+	/*margin: 0 0 0 0;*/
+	/*padding: 0rem 1rem 0rem 1rem;*/
+	background-color: rgba(236, 236, 238, 0.9);
+	/*background-color: rgba(255,255,255,0.1);*/
+	/*height: 100%;*/
+
+	padding-bottom: 100px;
+	/*Это не решение, исправим позднее! */
+
+	overflow: auto;
+	/*overflow-y: visible;*/
+	/*overflow-y: scroll;*/
+
+}
+
+summary {
+	cursor: pointer;
+}
+
+summary:focus {
+	outline: none !important;
+	border: none !important;;
+	/*box-shadow: 0 0 10px #719ECE;*/
+}
+
+#flexwords {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-content: space-around;
+	/*margin-top: 1rem;*/
+}
+
+.link-text {
+	font-size: 1.125rem;
+	color: #0d47a1;
+}
+
+#scrollable::-webkit-scrollbar {
+	width: 1rem;
+}
+
+#scrollable::-webkit-scrollbar-track {
+	/*-webkit-box-shadow: inset 0 0 0 rgba(0,0,0,0);*/
+}
+
+#scrollable::-webkit-scrollbar-thumb {
+	background-color: rgba(0, 0, 0, 0.08);
+	/*outline: 1px solid slategrey;*/
+}
+
+#paperhead {
+	/*position: relative;*/
+	padding: 1rem 0rem 1rem 1rem;
+	/*width: calc(40vw );*/
+	/*left: calc(50vw);*/
+	/*order: 1;*/
+	/*flex: 1 0 calc(50vw-6rem);*/
+	/*min-width: 10rem;*/
+	/*overflow: hidden;*/
+	/*height: 100%;*/
+	/*font-face: Arial;*/
+	/*align-content: flex-end;*/
+	/*height: calc(100vh - 500px);*/
+	/*height: 5.5rem;*/
+	font-size: 2.25rem;
+	line-height: 2.25rem;
+
+	/*flex-basis: 100%;*/
+	background-color: rgba(236, 236, 238, 0.9);
+	/*float: left;*/
+}
+
+/*#paperheadflex {*/
+/*display: flex;*/
+/*flex-direction: row;*/
+/*flex-wrap: nowrap;*/
+/*justify-content: flex-end;*/
+/*align-content: space-around;*/
+/*!*align-items: flex-end;*!*/
+/*!*height: 10vh;*!*/
+/*!*text-align: center;*!*/
+/*}*/
+
+#searchblock {
+	background-color: #e3f200;
+	padding: 0rem 1rem 0rem 1.75rem;
+	/*width: calc(100% - 4rem);*/
+
+	/*background-color: lightgray;*/
+}
+
+#si {
+	/*width: calc(100% - 6rem);*/
+	width: 40vw;
+	height: 3.5rem;
+	margin-top: 0.5rem;
+	border-radius: 0;
+	/*margin-left: 1.125rem;*/
+	color: #00aced;
+	background-color: rgba(236, 236, 238, 0.9);
+	border: 1px;
+	padding-left: 2.25rem;
+	border-bottom: solid 1px #aaa;
+	font-size: 1.25rem;
+	/*font-family: "Helvetica Neue";*/
+
+}
+
+/*#sb {*/
+/*background-color: none; !* Green *!*/
+/*border: none;*/
+/*padding: 0 0 0 0;*/
+/*margin: 0 0 0 0;*/
+/*color: white;*/
+/*padding: 15px 32px;*/
+/*text-align: center;*/
+/*text-decoration: none;*/
+/*display: inline-block;*/
+/*font-size: 16px;*/
+/*width: 4.125rem;*/
+/*height: 4.5rem;*/
+/*padding-top: 0.125rem;*/
+/*font-size: 1.5rem;*/
+/*text-align: center;*/
+/*line-height: 4.2rem;*/
+/*color: darkgray;*/
+/*background-color: rgba(200,200,200,0.2);*/
+
+/*}*/
+/*#sb:hover{*/
+/*color: lightcyan;*/
+/*}*/
+/*#asearchsign {*/
+/*margin-right: -2rem;*/
+/*background-color: #f2c037;*/
+/*}*/
+/*#asearchsign:hover { color: #3f51b5; }*/
+/*#asearchsign:active { color: #304ffe; }*/
+#ellipsissign {
+	margin-right: -1rem;
+	width: 4rem;
+	height: 4.5rem;
+	padding-top: 0.125rem;
+	font-size: 1.5rem;
+	text-align: center;
+	line-height: 4.2rem;
+	color: darkgray;
+	/*background-color: #f2c037;*/
+}
+
+#ellipsissign:hover {
+	color: #3f51b5;
+}
+
+#ellipsissign:active {
+	color: #304ffe;
+}
+
+/*transition: all 0.4s ease;*/
+
+#adescription summary {
+	user-select: none;
+}
+
+#adescription {
+	color: #555;
+	/*background-color: #3f3;*/
+	font-size: 1rem;
+	padding-left: 1rem;
+	padding-top: 0;
+	/*margin: 0 0 0 0;*/
+	line-height: 125%;
+
+	/*height: 30vh;*/
+	/*white-space: nowrap;*/
+	/*overflow: hidden;*/
+	/*text-overflow: ellipsis;*/
+
+}
+
+.linkis {
+	padding: 1rem 1.25rem 1.25rem 1.25rem;
+	/*background-color: #00aced;*/
+	width: auto;
+	font-size: 1rem;
+	color: #0d47a1;
+	margin-top: 1px;
+
+}
+
+input[type=checkbox] {
+	/* Double-sized Checkboxes */
+	-ms-transform: scale(1.25); /* IE */
+	-moz-transform: scale(1.25); /* FF */
+	-webkit-transform: scale(1.25); /* Safari and Chrome */
+	-o-transform: scale(1.25); /* Opera */
+}
+
+#aname {
+	order: 2;
+	flex: 1 1 auto;
+	min-height: 40px;
+	/*align-self: stretch;*/
+	/*color: #a11;*/
+	/*background-color: aqua;*/
+	font-size: 40px;
+	/*align-content: center;*/
+	/*align-self: center;*/
+	/*height: auto;*/
+	/*font-family: 'Comic Sans MS';*/
+	padding-top: 6px;
+
+	/*width: calc(100% - 80px);*/
+	/* ! important, if ellipses */
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }

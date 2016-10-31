@@ -1,0 +1,17 @@
+zoom {
+	pointer-events: auto!important;
+	position: absolute;
+	right: 0;
+	top: 30%;
+}
+
+.zoom .base {
+	cursor: pointer;
+	height: 60px;
+	width: 60px;
+	background-color: #7e6029;
+	margin: 10px;
+}
+.zoom .in {
+
+}

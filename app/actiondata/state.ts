@@ -1,10 +1,10 @@
 import loader from "./services/initdata.loader";
 import {A} from "alak";
 
-import {IAStream} from "alak";
 import BaseNode from "./classes/node.class";
 import {BaseGraph} from "./classes/graph.class";
 import {DataSet} from "./classes/dataset.class";
+import {GraphCommand} from "../components/graph-sigma/graph.command";
 
 
 
@@ -17,8 +17,8 @@ import {DataSet} from "./classes/dataset.class";
 class State {
     infoGraphs = loader.infoGraphsStream()
     infoWiki = loader.infoWikiStream()
-    data = A.start() as IAStream<BaseGraph>
-    selectedNode = A.start()  as IAStream<BaseNode>
+    data = A.start<BaseNode>()
+    selectedNode = A.start<BaseNode>()
 
     editMode = A.start()
 
@@ -28,7 +28,9 @@ class State {
 
     dataSet:DataSet = new DataSet()
     force = A.start(false)
+    graphCommand = A.start<GraphCommand>()
 }
+
 const state = new State()
 export default state
 

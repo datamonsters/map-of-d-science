@@ -1,20 +1,22 @@
 import {BaseGraph} from "./graph.class";
 import {A} from "alak";
-import {IAStream} from "alak";
+import {AStream} from "alak";
 import state from "../state";
 import {InfoGraph} from "./infograph.class";
 import writer from "../services/data.writer";
 import raw from "../services/initdata.loader";
 import {BaseEdge} from "./edge.class";
 
+
+
 export class DataSet {
     id: string
     name: string
-    graph = A.start() as IAStream<BaseGraph>
+    graph = A.start<BaseGraph>()
     coords = A.start()
     ext = A.start()
 
-    data = A.start() as IAStream<BaseGraph>
+    data = A.start<BaseGraph>()
 
     constructor() {
         this.graph.on(g => {

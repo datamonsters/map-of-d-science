@@ -1,8 +1,8 @@
-import {AO, A} from "alak";
+import {IndexOf, A} from "alak";
 import state from "../state";
 import {BaseEdge, getUID} from "./edge.class";
 let nodesPool: BaseNode[] = []
-let nodesMap: AO<BaseNode> = {}
+let nodesMap: IndexOf<BaseNode> = {}
 
 
 export default class BaseNode {
