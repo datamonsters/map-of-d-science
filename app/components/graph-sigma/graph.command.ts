@@ -7,5 +7,6 @@
 export enum GraphCommand {
     ZoomIn,
     ZoomOut,
-    Reset
+    Reset,
+    Dragg
 }

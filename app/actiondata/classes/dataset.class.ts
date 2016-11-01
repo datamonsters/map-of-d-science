@@ -38,8 +38,6 @@ export class DataSet {
                     }
                 })
             }
-
-
             let ex = (this.ext() as any).ex
             if (ex) {
                 console.log("ex:", ex)

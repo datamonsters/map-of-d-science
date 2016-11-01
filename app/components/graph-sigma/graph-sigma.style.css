@@ -14,3 +14,37 @@ graph-sigma {
 	pointer-events: auto!important;
 	/*background-color: #fffbf6;*/
 }
+
+#imageoverlay {
+	/*background-color: rgba(222,20,20,0.1);*/
+	position: absolute;
+
+	/*visibility: hidden;*/
+	/*position: absolute;*/
+	/*background:url(assets/overlay.png) center center no-repeat;*/
+	/*pointer-events: auto!important;*/
+	/*top: 50%;*/
+	/*left: 50%;*/
+	/*width: 100vw;*/
+	/*height: 100vh;*/
+	/*margin-top: -50vh; !* Half the height *!*/
+	/*margin-left: -50vw;*/
+}
+
+
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.fade-in {
+	opacity:0;  /* make things invisible upon start */
+	animation:fadeIn ease-in 1;
+	animation-fill-mode:forwards;
+	animation-duration:0.5s;
+}
+
+@keyframes fadeOut { from { opacity:1; } to { opacity:0; } }
+.fade-out {
+	opacity:1;  /* make things invisible upon start */
+	animation:fadeOut ease-in 1;
+	animation-fill-mode:forwards;
+	animation-duration:0.5s;
+}

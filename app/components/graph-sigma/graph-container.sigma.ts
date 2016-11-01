@@ -69,48 +69,56 @@ function init() {
         s.refresh()
     })
 
-    var cam = s.camera;
-
-// Zoom out - single frame :
-
-
-// Zoom in - single frame :
-
-// Zoom out - animation :
-    let animationDuration = 2000
-    sigma.misc.animation.camera(cam, {
-        ratio: cam.ratio * cam.settings('zoomingRatio')
-    }, {
-        duration: animationDuration
-    });
-
-// Zoom in - animation :
-    sigma.misc.animation.camera(cam, {
-        ratio: cam.ratio / cam.settings('zoomingRatio')
-    }, {
-        duration: animationDuration
-    });
-
+    let cam = s.camera
     let p = {}
+    let isreset = -1
+    let doreset = () => {
+        isreset = -1
+        console.log("doreset")
+        state.graphCommand(GraphCommand.Dragg)
+    }
+    cam.bind('coordinatesUpdated', () => {
+        if (isreset > 0) {
+
+            if (s.camera.x != 0 || s.camera.y != 0 && s.camera.ratio != 1) {
+                clearTimeout(isreset)
+                console.log("coordinatesUpdated")
+                isreset = setTimeout(doreset, 1)
+
+            }
+        }
+    })
+
     p[GraphCommand.ZoomIn] = () => {
         sigma.misc.animation.camera(cam, {
             ratio: cam.ratio / cam.settings('zoomingRatio')
         }, {
-            duration: animationDuration
-        });
+            duration: 333
+        })
     }
-
     p[GraphCommand.ZoomOut] = () => {
         sigma.misc.animation.camera(cam, {
             ratio: cam.ratio * cam.settings('zoomingRatio')
         }, {
-            duration: animationDuration
-        });
+            duration: 333
+        })
+    }
+    p[GraphCommand.Reset] = () => {
+        sigma.misc.animation.camera(
+            s.camera, {
+                x: 0,
+                y: 0,
+                ratio: 1
+            },
+            {duration: 300}
+        )
+        setTimeout(() => {
+            isreset = 1
+        }, 1020)
     }
     state.graphCommand.on(command => A.match(command, p))
 }
 const graphSigma = {
     init: init
 }
-
 export default graphSigma
