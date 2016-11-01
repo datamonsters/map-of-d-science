@@ -14,11 +14,11 @@
                 <details open="{!g.editmode}">
                     <summary><h1><u>{node.name}</u></h1></summary>
                     <p class="nodedetails">{node.info}</p>
-                    <span style="padding-left:0rem; font-size: 1rem;">
+                    <span style="padding-left:0rem; font-size: 1rem; margin-top: 0px;">
                         <a href="https://en.wikipedia.org/wiki/{node.wikiID}" target="_blank">Wikipedia</a>
                     </span>
                 </details>
-                <span id="relatedtopics"><br>Related Topics</span>
+                <span id="relatedtopics"><br>Related topics:</span>
                 <div id="flexwords">
                     <div each={node.nodesInOut} class="linkis">
                         <input if={g.editmode} type="checkbox" checked="{isEx(node.id)}" onchange="{changeEx}">
@@ -29,5 +29,5 @@
     </div>
 </div>
 <div class="appheader">Data Science Map</div>
-<div class="copyright">Extracted, processed and visualized at <a target="_blank" href="http://www.datamonsters.co/">Data Monsters</a></div>
+<div class="copyright">Extracted, processed and visualized by <a target="_blank" href="http://www.datamonsters.co/">Data Monsters</a></div>
 <zoom></zoom>
