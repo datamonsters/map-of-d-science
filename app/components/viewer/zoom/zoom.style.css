@@ -1,27 +1,28 @@
 zoom {
     pointer-events: auto !important;
     position: absolute;
-    right: 0;
+    left: 0;
     top: 30%;
 }
 
 .zoom .base {
-    height: 60px;
-    width: 60px;
+    height: 3.5rem;
+    width: 3.5rem;
     cursor: pointer;
-    background-color: #bde1f9;
-    margin: 10px;
+    background-color: rgba(236, 236, 238, 0.9);
+    border-radius: 0.5rem;
+    margin: 1rem;
     vertical-align: middle;
     text-align: center;
-
-
 }
 
 .zoom em {
-    height: 60px;
-    width: 60px;
+    font-style: normal;
+    height: 3.5rem;
+    width: 3.5rem;
     vertical-align: middle;
     text-align: center;
-    font-size: 40px;
+    font-size: 2rem;
     display: table-cell;
 }
+

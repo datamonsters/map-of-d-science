@@ -11,6 +11,30 @@
 	/*position: absolute;*/
 }
 
+.appheader {
+    position: absolute;
+    width: 50vw;
+    top: 1.75rem;
+    text-align: center;
+    /*left: 10vw;*/
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    font-weight: 900;
+    color: rgba(0,0,0,0.36);
+}
+.copyright {
+    /*cursor: pointer !important;*/
+    pointer-events: auto !important;
+    position: absolute;
+    width: 50vw;
+    bottom: 1rem;
+    text-align: center;
+    /*left: 10vw;*/
+    font-size: 1rem;
+    /*letter-spacing: 2px;*/
+    font-weight: 400;
+    color: rgba(0,0,0,0.36);
+}
 viewer {
 	/*z-index: 999999!important;*/
 	font-size: 16px;
@@ -25,9 +49,10 @@ viewer {
 
 .view-container {
 	position: absolute;
+    right: 2rem;
 	height: 100vh;
-	width: 100vw;
-	padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+	width: 40vw;
+	padding: 0.5rem 0.5rem 0.5rem 1rem;
 }
 
 /*#pane {*/
@@ -41,16 +66,19 @@ viewer {
 }
 
 #unscrollable {
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+
 	pointer-events: auto !important;
 	width: 40vw;
+    position: absolute;
+    right: 0px;
 	/*margin-right: 20%*/
 	/*margin: 0 0 0 0;*/
 	padding: 0.25rem 0.25rem 0.25rem 0.25rem;
 	background-color: lightgray;
-	display: -webkit-flex;
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: flex-start;
 }
 
 #scrollable {
@@ -58,13 +86,13 @@ viewer {
 	/*float: right;*/
 	width: 40vw;
 
-	/*margin-left: 55%;*/
+	right: 0;
 	/*margin: 0 0 0 0;*/
 	/*padding: 0rem 1rem 0rem 1rem;*/
 	background-color: rgba(236, 236, 238, 0.9);
 	/*background-color: rgba(255,255,255,0.1);*/
-	height: calc(100vh - 100px);
-	padding-bottom: 100px;
+	height: calc(100vh - 6rem);
+	padding-bottom: 1rem;
 
 	/*Это не решение, исправим позднее! */
 
@@ -76,6 +104,7 @@ viewer {
 
 summary {
 	cursor: pointer;
+	margin-top: 1rem;
 }
 
 summary:focus {
@@ -83,7 +112,26 @@ summary:focus {
 	border: none !important;;
 	/*box-shadow: 0 0 10px #719ECE;*/
 }
-
+summary::-webkit-details-marker {
+	display: none
+}
+summary h1 u{
+	font-size: 1.75rem;
+	font-weight: 300;
+    /*text-decoration: underline;*/
+    /*text-decoration-style: dashed;*/
+    /*-moz-text-decoration-style: dashed;*/
+    text-decoration: none;
+    border-bottom: 2px dotted;
+}
+.nodedetails {
+    margin-top: 0.75rem;
+}
+#relatedtopics {
+    font-size: 1rem;
+    /*line-height: 4rem;*/
+    /*padding-top: 10rem;*/
+}
 #flexwords {
 	display: flex;
 	flex-direction: row;
@@ -112,8 +160,11 @@ summary:focus {
 }
 
 #paperhead {
-	/*position: relative;*/
 	padding: 1rem 0rem 1rem 1rem;
+	font-size: 2.25rem;
+	line-height: 2.25rem;
+	background-color: rgba(236, 236, 238, 0.9);
+	/*position: relative;*/
 	/*width: calc(40vw );*/
 	/*left: calc(50vw);*/
 	/*order: 1;*/
@@ -125,28 +176,13 @@ summary:focus {
 	/*align-content: flex-end;*/
 	/*height: calc(100vh - 500px);*/
 	/*height: 5.5rem;*/
-	font-size: 2.25rem;
-	line-height: 2.25rem;
-
 	/*flex-basis: 100%;*/
-	background-color: rgba(236, 236, 238, 0.9);
 	/*float: left;*/
 }
 
-/*#paperheadflex {*/
-/*display: flex;*/
-/*flex-direction: row;*/
-/*flex-wrap: nowrap;*/
-/*justify-content: flex-end;*/
-/*align-content: space-around;*/
-/*!*align-items: flex-end;*!*/
-/*!*height: 10vh;*!*/
-/*!*text-align: center;*!*/
-/*}*/
-
 #searchblock {
 	background-color: #e3f200;
-	padding: 0rem 1rem 0rem 1.75rem;
+	padding: 0rem 1rem 0rem 0.75rem;
 	/*width: calc(100% - 4rem);*/
 
 	/*background-color: lightgray;*/
@@ -162,78 +198,52 @@ summary:focus {
 	color: #00aced;
 	background-color: rgba(236, 236, 238, 0.9);
 	border: 1px;
-	padding-left: 2.25rem;
+	padding-left: 1rem;
 	border-bottom: solid 1px #aaa;
 	font-size: 1.25rem;
 	/*font-family: "Helvetica Neue";*/
 
 }
 
-/*#sb {*/
-/*background-color: none; !* Green *!*/
-/*border: none;*/
-/*padding: 0 0 0 0;*/
-/*margin: 0 0 0 0;*/
-/*color: white;*/
-/*padding: 15px 32px;*/
-/*text-align: center;*/
-/*text-decoration: none;*/
-/*display: inline-block;*/
-/*font-size: 16px;*/
-/*width: 4.125rem;*/
-/*height: 4.5rem;*/
-/*padding-top: 0.125rem;*/
-/*font-size: 1.5rem;*/
-/*text-align: center;*/
-/*line-height: 4.2rem;*/
-/*color: darkgray;*/
-/*background-color: rgba(200,200,200,0.2);*/
-
-/*}*/
-/*#sb:hover{*/
-/*color: lightcyan;*/
-/*}*/
-/*#asearchsign {*/
-/*margin-right: -2rem;*/
-/*background-color: #f2c037;*/
-/*}*/
-/*#asearchsign:hover { color: #3f51b5; }*/
-/*#asearchsign:active { color: #304ffe; }*/
-#ellipsissign {
-	margin-right: -1rem;
-	width: 4rem;
-	height: 4.5rem;
-	padding-top: 0.125rem;
-	font-size: 1.5rem;
-	text-align: center;
-	line-height: 4.2rem;
-	color: darkgray;
-	/*background-color: #f2c037;*/
+#sicon {
+    margin-top: 3px;
 }
 
-#ellipsissign:hover {
-	color: #3f51b5;
-}
+/*#ellipsissign {*/
+	/*margin-right: -1rem;*/
+	/*width: 4rem;*/
+	/*height: 4.5rem;*/
+	/*padding-top: 0.125rem;*/
+	/*font-size: 1.5rem;*/
+	/*text-align: center;*/
+	/*line-height: 4.2rem;*/
+	/*color: darkgray;*/
+/*}*/
 
-#ellipsissign:active {
-	color: #304ffe;
-}
+/*#ellipsissign:hover {*/
+	/*color: #3f51b5;*/
+/*}*/
+
+/*#ellipsissign:active {*/
+	/*color: #304ffe;*/
+/*}*/
 
 /*transition: all 0.4s ease;*/
 
 #adescription summary {
 	user-select: none;
+	font-weight: 400;
 }
 
 #adescription {
 	color: #555;
-	/*background-color: #3f3;*/
 	font-size: 1rem;
 	padding-left: 1rem;
 	padding-top: 0;
-	/*margin: 0 0 0 0;*/
 	line-height: 125%;
-
+	font-weight: 400;
+	/*background-color: #3f3;*/
+	/*margin: 0 0 0 0;*/
 	/*height: 30vh;*/
 	/*white-space: nowrap;*/
 	/*overflow: hidden;*/
@@ -242,13 +252,12 @@ summary:focus {
 }
 
 .linkis {
-	padding: 1rem 1.25rem 1.25rem 1.25rem;
+	padding: 1rem 1.25rem 1.25rem 0rem;
 	/*background-color: #00aced;*/
 	width: auto;
 	font-size: 1rem;
 	color: #0d47a1;
 	margin-top: 1px;
-
 }
 
 input[type=checkbox] {
@@ -262,20 +271,19 @@ input[type=checkbox] {
 #aname {
 	order: 2;
 	flex: 1 1 auto;
-	min-height: 40px;
+	min-height: 2rem;
+	font-size: 40px;
+	padding-top: 6px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	/*align-self: stretch;*/
 	/*color: #a11;*/
 	/*background-color: aqua;*/
-	font-size: 40px;
 	/*align-content: center;*/
 	/*align-self: center;*/
 	/*height: auto;*/
 	/*font-family: 'Comic Sans MS';*/
-	padding-top: 6px;
-
 	/*width: calc(100% - 80px);*/
 	/* ! important, if ellipses */
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
 }

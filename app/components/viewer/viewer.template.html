@@ -1,8 +1,8 @@
 <div class="view-container">
     <div class="ui search" id="searchnode">
         <div class="ui icon input">
-            <input id="si" class="prompt" type="text" placeholder="Find Data Science Articles">
-            <i class="search icon"></i>
+            <input id="si" class="prompt" type="text" placeholder="Search">
+            <i class="search icon" id="sicon"></i>
         </div>
         <div class="results"></div>
     </div>
@@ -12,20 +12,22 @@
         <div id="scrollable">
             <h1 id="adescription">
                 <details open="{!g.editmode}">
-                    <summary><h1>{node.name}</h1>
-                    </summary>
-                    <p>{node.info}</p>
-                    <span style="padding-left:1rem; line-height: 1.5rem; font-size: 1rem;"><a
-                            href="https://en.wikipedia.org/wiki/{node.wikiID}" target="_blank">Wikipedia link</a></span>
+                    <summary><h1><u>{node.name}</u></h1></summary>
+                    <p class="nodedetails">{node.info}</p>
+                    <span style="padding-left:0rem; font-size: 1rem;">
+                        <a href="https://en.wikipedia.org/wiki/{node.wikiID}" target="_blank">Wikipedia</a>
+                    </span>
                 </details>
-                <h2>&nbsp&nbsp Related Topics</h2>
+                <span id="relatedtopics"><br>Related Topics</span>
                 <div id="flexwords">
                     <div each={node.nodesInOut} class="linkis">
                         <input if={g.editmode} type="checkbox" checked="{isEx(node.id)}" onchange="{changeEx}">
-                        <a class="pointing" onclick="{nodeSelect}">&nbsp&nbsp {name}</a>
+                        <a class="pointing" onclick="{nodeSelect}">{name}</a>
                     </div>
                 </div>
         </div>
     </div>
 </div>
+<div class="appheader">Data Science Map</div>
+<div class="copyright">Extracted, processed and visualized at <a target="_blank" href="http://www.datamonsters.co/">Data Monsters</a></div>
 <zoom></zoom>
