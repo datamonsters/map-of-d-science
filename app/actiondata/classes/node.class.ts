@@ -100,7 +100,7 @@ export default class BaseNode {
     redraw() {
         switch (this.state) {
             case "select":
-                this.color = "#002F5E"
+                this.color = "#0058AD"
                 this.size = this._size * 10
                 setTimeout(() => this.edgesIoOut.forEach(e => e.showIn()), 1)
                 this._state = this.state
@@ -110,11 +110,11 @@ export default class BaseNode {
                 this.size = this._size * 10
                 break
             case "selectIn":
-                this.color = "#6c96bf"
+                this.color = "#548ABF"
                 this.size = this._size * 10
                 break
             case "selectOut":
-                this.color = "#6c96bf"
+                this.color = "#ABCEF0"
                 this.size = this._size * 10
                 break
             case "clear":
