@@ -2,7 +2,7 @@ let fs = require('fs')
 let path = require('path')
 require('shelljs/global')
 
-export const deploy = ()=> exec(
+module.exports.deploy = ()=> exec(
     'npm install', (status, output) => {
         console.log("npm installed")
         npmprod()
