@@ -54,11 +54,11 @@ function init() {
     let activeState = sigma.plugins.activeState(s)
     let dragListener = sigma.plugins.dragNodes(s, s.renderers[0], activeState)
     dragListener.bind('startdrag', function (event) {
-        // if (event.data.node == state.selectedNode())
-        //     { //noinspection TypeScriptValidateTypes
-        //         state.selectedNode(false)
-        //     }
-        // else
+        if (event.data.node == state.selectedNode())
+            { //noinspection TypeScriptValidateTypes
+                state.selectedNode(false)
+            }
+        else
         state.selectedNode(event.data.node as BaseNode)
     })
 

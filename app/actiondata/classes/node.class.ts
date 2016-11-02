@@ -99,7 +99,7 @@ export default class BaseNode {
     redraw() {
         switch (this.state) {
             case "select":
-                this.color = "#0058AD"
+                this.color = "#AA0000"
                 this.size = this._size * 10
 
                 // setTimeout(() => this.edgesInOut.forEach(e => e.showIn()), 1)
