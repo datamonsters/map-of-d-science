@@ -6,8 +6,8 @@ let edgesPool: BaseEdge[] = []
 let alluncalMap = {}
 let exMap = {}
 let exClearMap = {}
-let uncalMap = {}
-let uncalPool: BaseEdge[] = []
+let unicMap = {}
+let unicPool: BaseEdge[] = []
 
 
 let a
@@ -35,8 +35,9 @@ export class BaseEdge {
         }, 1900)
     }
     static get upool() {
-        return uncalPool
+        return unicPool
     }
+
     static get exClear() {
         return exClearMap
     }
@@ -46,24 +47,21 @@ export class BaseEdge {
         edgesMap = {}
         edgesPool = []
         alluncalMap = {}
-        uncalMap = {}
-        uncalPool = []
+        unicMap = {}
+        unicPool = []
         exClearMap = {}
     }
 
-
-
-
     static init(ext?) {
-        uncalPool = []
+        unicPool = []
         if (ext) exMap = ext
         exClearMap = {}
 
         R.mapObjIndexed((v, k) => {
             if (v) exClearMap[k] = true
         }, exMap)
-        R.values<BaseEdge>(uncalMap).forEach(e => {
-            if (!exMap[e.uid]) uncalPool.push(e)
+        R.values<BaseEdge>(unicMap).forEach(e => {
+            if (!exMap[e.uid]) unicPool.push(e)
         })
 
         BaseNode.pool.forEach(n => {
@@ -73,11 +71,9 @@ export class BaseEdge {
 
         console.log("init edges")
 
-        R.values<BaseEdge>(uncalMap).forEach(e => {
-            BaseNode.map[e.source].edgesAll.push(e)
-            BaseNode.map[e.target].edgesAll.push(e)
-        })
-        R.values<BaseEdge>(uncalMap).forEach(e => {
+        R.values<BaseEdge>(unicMap).forEach(e => {
+            BaseNode.map[e.source].edgesInOut.push(e)
+            BaseNode.map[e.target].edgesInOut.push(e)
             BaseNode.map[e.target].nodesInOut.push(BaseNode.map[e.source])
             BaseNode.map[e.source].nodesInOut.push(BaseNode.map[e.target])
         })
@@ -98,7 +94,7 @@ export class BaseEdge {
 
         this.uid = getUID(this.target, this.source)
         if (alluncalMap[this.uid]) {
-            uncalMap[this.uid] = this
+            unicMap[this.uid] = this
         } else {
             alluncalMap[this.uid] = this
         }

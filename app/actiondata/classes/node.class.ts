@@ -72,9 +72,7 @@ export default class BaseNode {
         A.assign(this, o)
         nodesMap[this.id] = this
         nodesPool.push(this)
-
         BaseNode.maxSize = Math.max(BaseNode.maxSize, this.nodes ? this.nodes.length : 0)
-
         const getState = (nid) => {
             if (nid == this.id) return "select"
             let isIn = this.nodesIn[nid]
@@ -103,9 +101,8 @@ export default class BaseNode {
             case "select":
                 this.color = "#0058AD"
                 this.size = this._size * 10
-                console.log(this.edgesAll)
 
-                setTimeout(() => this.edgesAll.forEach(e => e.showIn()), 1)
+                // setTimeout(() => this.edgesInOut.forEach(e => e.showIn()), 1)
                 this._state = this.state
                 break
             case "selectInOut":
@@ -134,9 +131,9 @@ export default class BaseNode {
                 break
         }
 
-        if (this._state != this.state) {
-            this.edgesInOut.forEach(e => e.hide())
-        }
+        // if (this._state != this.state) {
+        //     this.edgesInOut.forEach(e => e.hide())
+        // }
         this._state = this.state
     }
 }
