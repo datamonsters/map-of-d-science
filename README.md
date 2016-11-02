@@ -2,8 +2,7 @@
 Map of Data Science
 
 ## Install
-```
-npm install webpack -g
+``` 
 npm install
 ```
 
