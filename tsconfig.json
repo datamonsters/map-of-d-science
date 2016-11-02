@@ -5,7 +5,18 @@
         "module": "system",
         "moduleResolution": "node",
         "allowSyntheticDefaultImports":true,
-        "experimentalDecorators": true
+        "experimentalDecorators": true,
+        "noImplicitAny": false,
+        "noEmitOnError": false,
+        "removeComments": true,
+        "sourceMap": true,
+        "outDir": "./dist",
+        "baseUrl": ".",
+        "paths": {
+            "app/*": [
+                "./app/*"
+            ]
+        }
     },
     "exclude": [
         "node_modules",

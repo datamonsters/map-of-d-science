@@ -6,6 +6,36 @@ var TsConfigPathsPlugin = require('awesome-typescript-loader').TsConfigPathsPlug
 
 const p = (f)=>path.resolve(__dirname + f)
 
+var plugins = [
+    new TsConfigPathsPlugin(),
+    new CopyWebpackPlugin(
+        [
+            {from: './src/index.html'},
+            {
+                from: './assets',
+                to: 'assets'
+            },
+            {
+                from: './libs',
+                to: 'libs'
+            },
+        ]
+    ),
+    new webpack.ProvidePlugin({}),
+    new HtmlWebpackPlugin(
+        {
+            template: './app/index.html'
+        }
+    )
+//,
+]
+
+
+//if (env.compress === 'true') {
+//    plugins.push(new webpack.optimize.UglifyJsPlugin({minimize: true}))
+//}
+
+
 module.exports = {
     entry: {
         'main': p('/app/index.ts')
@@ -61,31 +91,9 @@ module.exports = {
     },
     output: {
         filename: '[name].js',
-        publicPath: '/',
+        publicPath: './',
         path: path.resolve(__dirname + '/dist'),
     },
 
-    plugins: [
-        new TsConfigPathsPlugin(),
-        new CopyWebpackPlugin(
-            [
-                {from: './src/index.html'},
-                {
-                    from: './assets',
-                    to: 'assets'
-                },
-                {
-                    from: './libs',
-                    to: 'libs'
-                },
-            ]
-        ),
-        new webpack.ProvidePlugin({}),
-        new HtmlWebpackPlugin(
-            {
-                template: './app/index.html'
-            }
-        )
-//,         new webpack.optimize.UglifyJsPlugin({minimize: true})
-    ],
+    plugins: plugins
 };
