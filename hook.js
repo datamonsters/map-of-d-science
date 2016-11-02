@@ -1,7 +1,6 @@
 require('shelljs/global')
 const http = require('http')
 const fs = require('fs')
-import {deploy} from "./deploy";
 const PORT = 3040
 
 const server = http.createServer(
@@ -45,6 +44,6 @@ const pull = () => exec(
     'git pull', (status, output) => {
         console.log(status, output)
         console.info("git pull command done")
-        deploy()
+        require("deploy").deploy()
     }
 )
