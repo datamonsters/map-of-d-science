@@ -44,6 +44,6 @@ const pull = () => exec(
     'git pull', (status, output) => {
         console.log(status, output)
         console.info("git pull command done")
-        require("deploy").deploy()
+        require("./deploy").deploy()
     }
 )
