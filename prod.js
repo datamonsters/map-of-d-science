@@ -18,18 +18,18 @@ hook.start()
 
 
 const server = new (forever.Monitor)(
-    '../deploy.js', {
+    'deploy.js', {
         uid: "server",
         max: 2,
         killTree: true,
-        sourceDir: 'root',
+        sourceDir: './',
         watch: true,
         'logFile': './logs/deploy-txt',
         'outFile': './logs/deploy-out.txt',
         'errFile': './logs/deploy-err.txt'
     }
 )
-
+server.start()
 require('ngrok').connect(
     3040, (err, url) => {
         console.log("ngrok", url)
