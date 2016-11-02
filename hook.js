@@ -103,10 +103,3 @@ const npmprod = () => exec(
     }
 )
 
-
-
-require('ngrok').connect(
-    PORT, (err, url) => {
-        console.log("ngrok", url)
-    }
-);
