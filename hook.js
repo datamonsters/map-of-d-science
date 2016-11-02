@@ -97,7 +97,7 @@ const npminstall = () => exec(
     }
 )
 const npmprod = () => exec(
-    'npm start prod', (status, output) => {
+    'npm run prod', (status, output) => {
         console.log("comilation done")
         copyRecursiveSync("./dist", "../../lab/map-of-data-sciense");
     }

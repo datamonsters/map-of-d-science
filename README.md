@@ -14,5 +14,5 @@ npm run start
 
 ## Publish 
 ```
-webpack
+npm run prod
 ```
