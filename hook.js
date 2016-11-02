@@ -1,13 +1,14 @@
 require('shelljs/global')
 const http = require('http')
 const fs = require('fs')
+import {deploy} from "./deploy";
 const PORT = 3040
 
 const server = http.createServer(
     (req, res) => {
         let body = ""
         res.writeHead(200, {'Content-Type': 'text/plain'});
-        res.end(fs.readFileSync("./logs/deploy-out.txt"));
+        res.end(fs.readFileSync("./logs/hook-log-out.txt"));
         req.on(
             'data', (data) =>
                 body += data
@@ -17,7 +18,7 @@ const server = http.createServer(
                 if (body) {
                     let data = JSON.parse(body);
                     if (data.ref == "refs/heads/master")
-                        deploy()
+                        pull()
                     console.log("ref", data.ref)
                     console.log("repository", data.repository.name)
                     if (data.commits)
@@ -40,9 +41,10 @@ server.listen(
 )
 console.info("start hook of forever")
 
-const deploy = () => exec(
+const pull = () => exec(
     'git pull', (status, output) => {
         console.log(status, output)
         console.info("git pull command done")
+        deploy()
     }
 )
