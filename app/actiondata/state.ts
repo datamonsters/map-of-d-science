@@ -17,6 +17,7 @@ import {GraphCommand} from "../components/graph-sigma/graph.command";
 class State {
     infoGraphs = loader.infoGraphsStream()
     infoWiki = loader.infoWikiStream()
+    tags = loader.tagsStream()
     data = A.start<BaseNode>()
     selectedNode = A.start<BaseNode>()
 

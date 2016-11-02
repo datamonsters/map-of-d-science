@@ -128,12 +128,12 @@ summary h1 u{
     margin-top: 0.75rem;
     margin-bottom: 0rem;
 }
-#relatedtopics {
+.relatedtopics {
     font-size: 1rem;
     /*line-height: 4rem;*/
     /*padding-top: 10rem;*/
 }
-#flexwords {
+.flexwords {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -258,6 +258,14 @@ summary h1 u{
 	width: auto;
 	font-size: 1rem;
 	color: #0d47a1;
+	margin-top: 1px;
+}
+.tags {
+	padding: 1rem 1.25rem 1.25rem 0rem;
+	/*background-color: #00aced;*/
+	width: auto;
+	font-size: 1rem;
+	color: #000000;
 	margin-top: 1px;
 }
 

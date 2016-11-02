@@ -18,8 +18,14 @@
                         <a href="https://en.wikipedia.org/wiki/{node.wikiID}" target="_blank">Wikipedia</a>
                     </span>
                 </details>
-                <span id="relatedtopics"><br>Related topics:</span>
-                <div id="flexwords">
+                <span class="relatedtopics"><br>Related tags:</span>
+                <div class="flexwords">
+                    <div each="{tag_name, i in nodetags}" class="tags">
+                        <div >{tag_name}</div>
+                    </div>
+                </div>
+                <span class="relatedtopics"><br>Related topics:</span>
+                <div class="flexwords">
                     <div each={node.nodesInOut} class="linkis">
                         <input if={g.editmode} type="checkbox" checked="{isEx(node.id)}" onchange="{changeEx}">
                         <a class="pointing" onclick="{nodeSelect}">{name}</a>

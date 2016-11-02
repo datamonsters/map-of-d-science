@@ -2,6 +2,7 @@ import {AController, Tag} from "arts";
 import BaseNode from "../../actiondata/classes/node.class";
 import state from "../../actiondata/state";
 import {BaseEdge} from "../../actiondata/classes/edge.class";
+import {tags} from "../../actiondata/classes/tags";
 
 export default class ViewerController implements AController {
     opt: any
@@ -14,8 +15,11 @@ export default class ViewerController implements AController {
         let current: BaseNode
         state.selectedNode.on(node => {
             current = node
-            tag.update({
-                node: node
+            state.tags.once(alltags => {
+                tag.update({
+                    node: node,
+                    nodetags: tags.index[node.wikiID]
+                })
             })
         })
         tag.nodeSelect = (i) => {
@@ -32,6 +36,7 @@ export default class ViewerController implements AController {
     //
     onmount() {
         state.dataSet.data.on(g => {
+
             let component = $('#searchnode')
             component
                 .search({
@@ -43,11 +48,10 @@ export default class ViewerController implements AController {
                     onResultsClose: () => {
                         setTimeout(() => component.search("set value", ""), 333)
                     },
-                    onResultsOpen:()=>{
+                    onResultsOpen: () => {
                         state.selectedNode(false)
                     }
                 })
-
             ;
         })
     }
