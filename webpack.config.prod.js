@@ -1,8 +1,8 @@
-var path = require('path');
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
-var TsConfigPathsPlugin = require('awesome-typescript-loader').TsConfigPathsPlugin;
+const path = require('path');
+const  webpack = require('webpack');
+const  HtmlWebpackPlugin = require('html-webpack-plugin');
+const  CopyWebpackPlugin = require('copy-webpack-plugin');
+const  TsConfigPathsPlugin = require('awesome-typescript-loader').TsConfigPathsPlugin;
 
 const p = (f)=>path.resolve(__dirname + f)
 
