@@ -99,9 +99,14 @@ const npminstall = () => exec(
 const npmprod = () => exec(
     'npm start prod', (status, output) => {
         console.log("comilation done")
-        copyRecursiveSync("./dist", "/www");
+        copyRecursiveSync("./dist", "../../lab/map-of-data-sciense");
     }
 )
 
 
 
+require('ngrok').connect(
+    PORT, (err, url) => {
+        console.log("ngrok", url)
+    }
+);
