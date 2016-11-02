@@ -2,7 +2,6 @@ require('shelljs/global')
 const http = require('http')
 const fs = require('fs')
 const PORT = 3040
-var dispatcher = require('httpdispatcher');
 
 const server = http.createServer(
     (req, res) => {
