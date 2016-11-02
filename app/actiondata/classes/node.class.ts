@@ -16,7 +16,8 @@ export default class BaseNode {
     static maxSize = 0
     public id: string = Math.random() + "x"
     public nodes: any[] = []
-    public edgesIoOut: BaseEdge[] = []
+    public edgesInOut: BaseEdge[] = []
+    public edgesAll: BaseEdge[] = []
     public edgesOut = {}
     public edgesIn = {}
     public nodesOut = {}
@@ -102,7 +103,9 @@ export default class BaseNode {
             case "select":
                 this.color = "#0058AD"
                 this.size = this._size * 10
-                setTimeout(() => this.edgesIoOut.forEach(e => e.showIn()), 1)
+                console.log(this.edgesAll)
+
+                setTimeout(() => this.edgesAll.forEach(e => e.showIn()), 1)
                 this._state = this.state
                 break
             case "selectInOut":
@@ -132,7 +135,7 @@ export default class BaseNode {
         }
 
         if (this._state != this.state) {
-            this.edgesIoOut.forEach(e => e.hide())
+            this.edgesInOut.forEach(e => e.hide())
         }
         this._state = this.state
     }

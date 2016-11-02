@@ -34,9 +34,6 @@ export class BaseEdge {
             timeout = null
         }, 1900)
     }
-    // static pool: BaseEdge[] = edgesPool
-    // static map = edgesMap
-    // static umap: BaseEdge[]
     static get upool() {
         return uncalPool
     }
@@ -70,14 +67,17 @@ export class BaseEdge {
         })
 
         BaseNode.pool.forEach(n => {
-            n.edgesIoOut = []
+            n.edgesInOut = []
             n.nodesInOut = []
         })
+
         console.log("init edges")
 
         R.values<BaseEdge>(uncalMap).forEach(e => {
-            BaseNode.map[e.source].edgesIoOut.push(e)
-            BaseNode.map[e.target].edgesIoOut.push(e)
+            BaseNode.map[e.source].edgesAll.push(e)
+            BaseNode.map[e.target].edgesAll.push(e)
+        })
+        R.values<BaseEdge>(uncalMap).forEach(e => {
             BaseNode.map[e.target].nodesInOut.push(BaseNode.map[e.source])
             BaseNode.map[e.source].nodesInOut.push(BaseNode.map[e.target])
         })
