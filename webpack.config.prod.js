@@ -60,7 +60,7 @@ module.exports = {
         }
     },
     output: {
-        filename: '[name].js',
+        filename: '[name].js?x='+Math.random(),
         publicPath: './',
         path: path.resolve(__dirname + '/dist'),
     },
