@@ -11,7 +11,7 @@ module.exports.deploy = ()=> exec(
 const npmprod = () => exec(
     'npm run prod', (status, output) => {
         console.log("comilation done")
-        copyRecursiveSync("./dist", "../../lab/map-of-data-sciense");
+        copyRecursiveSync("./dist", "../../lab/map-of-data-science");
         console.log("deploy ok", new Date().getDate())
     }
 )
