@@ -19,7 +19,6 @@ export function tagRawParser(raw: string) {
     let tags: BaseTag[] = []
     let tag: BaseTag
 
-    console.log(BaseNode.map)
 
     lines.forEach((l) => {
         let val = l.split(';')
@@ -32,7 +31,6 @@ export function tagRawParser(raw: string) {
             }
         }
     })
-    console.log(createdTags)
 
     return createdTags
 }

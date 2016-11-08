@@ -104,9 +104,6 @@ export class BaseEdge {
         let source = BaseNode.map[this.source]
         let target = BaseNode.map[this.target]
         source.edgesOut[this.id] = this
-        if (!target) {
-            console.log(BaseNode.map)
-        }
         target.edgesIn[this.id] = this
 
         source.nodesOut[this.target] = true

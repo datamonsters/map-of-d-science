@@ -269,6 +269,11 @@ summary h1 u{
 	margin-top: 1px;
 }
 
+.tags.selected {
+	color: #ff641e;
+	font-weight: 900;
+}
+
 input[type=checkbox] {
 	/* Double-sized Checkboxes */
 	-ms-transform: scale(1.25); /* IE */

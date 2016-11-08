@@ -13,10 +13,10 @@ const raw = {
         const stream = A.start<IndexOf<BaseTag>>()
         let rawDataStream = new DataStream()
         rawDataStream.on(raw => {
-            console.log("tags done")
+            console.log("tags loaded")
             state.dataSet.graph.on(graph => {
-                console.log("tags graph")
                 stream(tagRawParser(raw))
+                console.log("tags initialized complete")
             })
         })
         rawDataStream.load("./assets/tags.txt")
@@ -41,12 +41,10 @@ const raw = {
     },
 
     lastExt: (id: string) => {
-        console.log("get ext :", id)
+        console.log("load exceptions:", id)
         const stream = A.start()
         let starCountRef = firebase.database().ref('exception').limitToLast(1);
         starCountRef.on('value', function (snapshot) {
-
-            console.log("get ext numChildren :", snapshot.numChildren())
             if (snapshot.numChildren() == 1) {
                 stream(R.values(snapshot.val())[0])
             }
@@ -54,7 +52,7 @@ const raw = {
         return stream
     },
     lastcoords: (id: string) => {
-        console.log("get coords: ", id)
+        console.log("load coordinates: ", id)
         const stream = A.start()
         let starCountRef = firebase.database().ref('coords/' + id).limitToLast(1);
         starCountRef.on('value', function (snapshot) {

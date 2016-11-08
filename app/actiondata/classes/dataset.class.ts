@@ -40,7 +40,7 @@ export class DataSet {
             }
             let ex = (this.ext() as any).ex
             if (ex) {
-                console.log("ex:", ex)
+                console.log("exception:", ex)
                 BaseEdge.init(ex)
                 g.edges = BaseEdge.upool
             }
@@ -63,18 +63,18 @@ export class DataSet {
     }
 
     restore() {
-        let startGrpah = Cookies.get('startGrpah')
-        console.log("startGrpah", startGrpah)
+        let startGraph = Cookies.get('startGrpah')
+        console.log("local graph: ", startGraph)
 
         state.infoGraphs.on(i => {
-            if (!startGrpah) {
+            if (!startGraph) {
                 this.loadGraphByInfo(
                     R.values<InfoGraph>(i)
                         .sort((a, b) => b.time - a.time)
                         [0]
                 )
             } else {
-                this.loadGraphByInfo(i[startGrpah])
+                this.loadGraphByInfo(i[startGraph])
             }
         })
 

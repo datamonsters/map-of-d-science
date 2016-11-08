@@ -65,7 +65,7 @@ function init() {
     })
 
     state.dataSet.data.on((data: BaseGraph) => {
-        console.log("sigma redraw graph:", data.nodes.length, data.edges.length)
+        console.log("sigma redraw graph: ", data.nodes.length, data.edges.length)
         s.graph.clear()
         s.graph.read(data)
         s.refresh()

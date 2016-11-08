@@ -20,7 +20,7 @@
                 </details>
                 <span class="relatedtopics"><br>Related tags:</span>
                 <div class="flexwords">
-                    <div each="{basetag, i in node.tags}" class="tags">
+                    <div each="{basetag, i in node.tags}" class="tags" id="{basetag.name}">
                         <div class="pointing" onclick="{selectTag}">#{basetag.name}</div>
                     </div>
                 </div>

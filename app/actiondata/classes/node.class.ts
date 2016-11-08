@@ -20,7 +20,7 @@ export default class BaseNode {
     static names = nodesNamesMap
     static maxSize = 0
 
-    tags:BaseTag[] = [];
+    tags: BaseTag[] = [];
     id: string = Math.random() + "x"
     nodes: any[] = []
     edgesInOut: BaseEdge[] = []
@@ -79,8 +79,6 @@ export default class BaseNode {
         nodesPool.push(this)
         BaseNode.maxSize = Math.max(BaseNode.maxSize, this.nodes ? this.nodes.length : 0)
         const getState = (nid) => {
-            console.log("getState",nid)
-
             if (nid == this.id) return "select"
             let isIn = this.nodesIn[nid]
             let isOut = this.nodesOut[nid]
@@ -105,7 +103,7 @@ export default class BaseNode {
             let sn = state.selectedNode()
             if (sn) this.state = getState(sn.id)
             else  this.state = "clear"
-            if (tag && tag.nodes[this.id]) {
+            if (tag && tag.nodes[this.id] && this.state != "select") {
                 this.state = "tag"
             }
             this.redraw()
@@ -113,9 +111,8 @@ export default class BaseNode {
     }
 
 
-
-
     redraw() {
+
         switch (this.state) {
             case "select":
                 this.color = "#AA0000"
@@ -146,7 +143,7 @@ export default class BaseNode {
                 break
             case "tag":
                 this.color = "#ff861f"
-                this.size = this._size * 7
+                this.size = this._size * 20
                 break
         }
 

@@ -28,8 +28,16 @@ export default class ViewerController implements AController {
         tag.changeEx = (i) => {
             BaseEdge.setEx(current.id, i.item.id, i.target.checked)
         }
-        tag.selectTag = (i) =>{
-            state.selectedTag(i.item.basetag)
+        tag.selectTag = (i) => {
+            $(".tags").removeClass("selected")
+            if (state.selectedTag() == i.item.basetag) {
+                state.selectedTag(false)
+
+            } else {
+
+                $(i.target.parentElement).addClass("selected")
+                state.selectedTag(i.item.basetag)
+            }
         }
     }
 
