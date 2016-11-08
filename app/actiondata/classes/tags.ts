@@ -26,7 +26,9 @@ export function tagRawParser(raw: string) {
         if (node) {
             let tagsString = val[1]
             if (tagsString) {
-                tagsString = tagsString.substring(0, tagsString.length - 1);
+                // console.log(tagsString)
+                // tagsString = tagsString.substring(0, tagsString.length - 1);
+                // console.log(tagsString)
                 node.tags = tagsString.split(',').map(t => tagFabriqe(t, node))
             }
         }
