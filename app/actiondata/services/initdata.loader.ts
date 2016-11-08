@@ -2,18 +2,24 @@ import A from "alak";
 import firebase from "firebase";
 
 
-
 import DataStream from "./datastream";
 import state from "../state";
 import {InfoGraph} from "../classes/infograph.class";
-import {tags} from "../classes/tags";
+import {tagRawParser, BaseTag} from "../classes/tags";
+import {IndexOf} from "alak";
 
 const raw = {
     tagsStream: () => {
-        const stream = A.start()
-        let infoStream = new DataStream(tags.parser)
-        infoStream.load("./assets/tags.txt")
-        infoStream.on(stream)
+        const stream = A.start<IndexOf<BaseTag>>()
+        let rawDataStream = new DataStream()
+        rawDataStream.on(raw => {
+            console.log("tags done")
+            state.dataSet.graph.on(graph => {
+                console.log("tags graph")
+                stream(tagRawParser(raw))
+            })
+        })
+        rawDataStream.load("./assets/tags.txt")
         return stream
     },
     infoWikiStream: () => {

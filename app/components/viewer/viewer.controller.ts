@@ -2,25 +2,22 @@ import {AController, Tag} from "arts";
 import BaseNode from "../../actiondata/classes/node.class";
 import state from "../../actiondata/state";
 import {BaseEdge} from "../../actiondata/classes/edge.class";
-import {tags} from "../../actiondata/classes/tags";
+
 
 export default class ViewerController implements AController {
     opt: any
     tag: Tag
 
     oncreate(opt: any, tag: any) {
-        // state.editMode.on(v => tag.update({editmode: v}))
-
-        // console.log("opt:", opt)
         let current: BaseNode
         state.selectedNode.on(node => {
             current = node
-            state.tags.once(alltags => {
-                tag.update({
-                    node: node,
-                    nodetags: tags.index[node.wikiID]
-                })
+            tag.update({
+                node: node
             })
+            // state.tags.once(alltags => {
+            //
+            // })
         })
         tag.nodeSelect = (i) => {
             state.selectedNode(i.item)
@@ -31,12 +28,14 @@ export default class ViewerController implements AController {
         tag.changeEx = (i) => {
             BaseEdge.setEx(current.id, i.item.id, i.target.checked)
         }
+        tag.selectTag = (i) =>{
+            state.selectedTag(i.item.basetag)
+        }
     }
 
     //
     onmount() {
         state.dataSet.data.on(g => {
-
             let component = $('#searchnode')
             component
                 .search({

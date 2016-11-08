@@ -1,44 +1,48 @@
 import {IndexOf, A} from "alak";
 import state from "../state";
 import {BaseEdge, getUID} from "./edge.class";
+import {BaseTag} from "./tags";
 let nodesPool: BaseNode[] = []
 let nodesMap: IndexOf<BaseNode> = {}
+let nodesNamesMap: IndexOf<BaseNode> = {}
 
 
 export default class BaseNode {
+
     static clear() {
         R.empty(nodesMap)
         R.empty(nodesPool)
+        R.empty(nodesNamesMap)
     }
 
     static pool = nodesPool
     static map = nodesMap
+    static names = nodesNamesMap
     static maxSize = 0
-    public id: string = Math.random() + "x"
-    public nodes: any[] = []
-    public edgesInOut: BaseEdge[] = []
-    public edgesAll: BaseEdge[] = []
-    public edgesOut = {}
-    public edgesIn = {}
-    public nodesOut = {}
-    public nodesIn = {}
-    public nodesInOut = []
-    // public label
-    public name
-    public size
-    public _size
-    public linkCount = 0
-    public sizeK = 0
-    public color
-    public glyphs = []
-    public _color
-    public x = Math.random() * 1500
-    public y = Math.random() * 1500
-    public wikiID: string
-    private state = ""
 
-    // public title:string
-    // public description:string
+    tags:BaseTag[] = [];
+    id: string = Math.random() + "x"
+    nodes: any[] = []
+    edgesInOut: BaseEdge[] = []
+    edgesAll: BaseEdge[] = []
+    edgesOut = {}
+    edgesIn = {}
+    nodesOut = {}
+    nodesIn = {}
+    nodesInOut = []
+    name
+    size
+    _size
+    linkCount = 0
+    sizeK = 0
+    color
+    glyphs = []
+    _color
+    x = Math.random() * 1500
+    y = Math.random() * 1500
+    wikiID: string
+    state = ""
+    private _state
 
     isEx(id) {
         let uid = getUID(this.id, id)
@@ -71,9 +75,12 @@ export default class BaseNode {
     constructor(o) {
         A.assign(this, o)
         nodesMap[this.id] = this
+        nodesNamesMap[this.wikiID] = this
         nodesPool.push(this)
         BaseNode.maxSize = Math.max(BaseNode.maxSize, this.nodes ? this.nodes.length : 0)
         const getState = (nid) => {
+            console.log("getState",nid)
+
             if (nid == this.id) return "select"
             let isIn = this.nodesIn[nid]
             let isOut = this.nodesOut[nid]
@@ -84,6 +91,7 @@ export default class BaseNode {
         }
 
         state.selectedNode.on(n => {
+
             if (n) {
                 this.state = getState(n.id)
             } else {
@@ -91,10 +99,21 @@ export default class BaseNode {
             }
             this.redraw()
         })
+
+
+        state.selectedTag.on(tag => {
+            let sn = state.selectedNode()
+            if (sn) this.state = getState(sn.id)
+            else  this.state = "clear"
+            if (tag && tag.nodes[this.id]) {
+                this.state = "tag"
+            }
+            this.redraw()
+        })
     }
 
 
-    _state
+
 
     redraw() {
         switch (this.state) {
@@ -125,9 +144,9 @@ export default class BaseNode {
                 this.color = "#D8D4CF"
                 this.size = this._size
                 break
-            case "selectHidden":
-                this.color = "#FF0DFF"
-                this.size = this._size + 1000
+            case "tag":
+                this.color = "#ff861f"
+                this.size = this._size * 7
                 break
         }
 

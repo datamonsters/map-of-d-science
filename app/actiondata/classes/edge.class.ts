@@ -60,6 +60,7 @@ export class BaseEdge {
         R.mapObjIndexed((v, k) => {
             if (v) exClearMap[k] = true
         }, exMap)
+
         R.values<BaseEdge>(unicMap).forEach(e => {
             if (!exMap[e.uid]) unicPool.push(e)
         })

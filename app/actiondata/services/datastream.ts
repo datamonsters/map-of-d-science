@@ -2,11 +2,11 @@ export default class DataStream {
     private xhr = new XMLHttpRequest()
     public url: string
 
-    constructor(parser) {
+    constructor(parser?) {
         this.xhr.onreadystatechange = ()=> {
             if (this.xhr.readyState === 4) {
                 if (this.xhr.status === 200) {
-                    let data = parser(this.xhr.responseText)
+                    let data = parser ? parser(this.xhr.responseText) : this.xhr.responseText
                     if (this._next) this._next(data)
                 } else {
                     console.warn("datastream Error", this.xhr.statusText);

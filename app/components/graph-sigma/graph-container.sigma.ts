@@ -8,10 +8,12 @@ import {GraphCommand} from "./graph.command";
 let s
 
 function init() {
-    state.actionClear.on(() => setTimeout(() => s.refresh(), 100))
-    state.selectedNode.on(() => {
-        setTimeout(() => s.refresh(), 100)
-    })
+    const delayedRefresh = ()=> setTimeout(() => s.refresh(), 100)
+    state.actionClear.on(delayedRefresh)
+    state.selectedNode.on(delayedRefresh)
+    state.selectedTag.on(delayedRefresh)
+
+
 
     state.force.on(v => {
         if (v) sigma.layouts.startForceLink()

@@ -5,6 +5,7 @@ import BaseNode from "./classes/node.class";
 import {BaseGraph} from "./classes/graph.class";
 import {DataSet} from "./classes/dataset.class";
 import {GraphCommand} from "../components/graph-sigma/graph.command";
+import {BaseTag} from "./classes/tags";
 
 
 
@@ -20,6 +21,7 @@ class State {
     tags = loader.tagsStream()
     data = A.start<BaseNode>()
     selectedNode = A.start<BaseNode>()
+    selectedTag = A.start<BaseTag>()
 
     editMode = A.start()
 
