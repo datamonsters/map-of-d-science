@@ -11,8 +11,25 @@
 	/*position: absolute;*/
 }
 
+#logo {
+	position: absolute;
+    /*top: 1.75rem;*/
+    left: 0.8em;
+
+}
+
+.applogo {
+    position: absolute;
+	top: 1.75rem;
+    width: 200em;
+    /*top: 1.75rem;*/
+    /*text-align: center;*/
+    left: 10vw;
+}
+
 .appheader {
     position: absolute;
+	/*top: 8em;*/
     width: 50vw;
     top: 1.75rem;
     text-align: center;
@@ -20,6 +37,17 @@
     font-size: 1.5rem;
     letter-spacing: 2px;
     font-weight: 900;
+    color: rgba(0,0,0,0.36);
+}
+.copyright_old {
+    /*cursor: pointer !important;*/
+    pointer-events: auto !important;
+    position: absolute;
+    top: 13.8em;
+    left: 3em;
+    font-size: 1rem;
+    /*letter-spacing: 2px;*/
+    font-weight: 400;
     color: rgba(0,0,0,0.36);
 }
 .copyright {

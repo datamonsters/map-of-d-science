@@ -18,13 +18,13 @@
                         <a href="https://en.wikipedia.org/wiki/{node.wikiID}" target="_blank">Wikipedia</a>
                     </span>
                 </details>
-                <span class="relatedtopics"><br>Related tags:</span>
+                <!-- <span class="relatedtopics"><br>Related tags:</span>-->
                 <div class="flexwords">
                     <div each="{basetag, i in node.tags}" class="tags" id="{basetag.name}">
                         <div class="pointing" onclick="{selectTag}">#{basetag.name}</div>
                     </div>
                 </div>
-                <span class="relatedtopics"><br>Related Articles:</span>
+                <span class="relatedtopics"><br><h4>Related Articles:</h4></span>
                 <div class="flexwords">
                     <div each={node.nodesInOut} class="linkis">
                         <input if={g.editmode} type="checkbox" checked="{isEx(node.id)}" onchange="{changeEx}">
@@ -34,6 +34,14 @@
         </div>
     </div>
 </div>
-<div class="appheader">Data Science Map</div>
+
+<!--
+<div class='applogo'>
+	<div class="appheader">Data Science Map</div>
+	<img id="logo"  src="{'./assets/logo.png'}">
+	<div class="copyright">by <a target="_blank" href="http://www.datamonsters.co/">Data Monsters</a></div>
+</div>
+-->
+<div class="appheader">Data Science Map</div>	
 <div class="copyright">Extracted, processed and visualized by <a target="_blank" href="http://www.datamonsters.co/">Data Monsters</a></div>
 <zoom></zoom>
